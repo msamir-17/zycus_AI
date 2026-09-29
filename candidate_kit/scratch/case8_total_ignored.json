@@ -1,0 +1,23 @@
+{
+  "invoice_number": "C008",
+  "currency": "USD",
+  "taxes": [],
+  "discount_amount": "",
+  "freight_charges": "",
+  "insurance_charges": "",
+  "extra_charges": "",
+  "excise_duties": "",
+  "line_items": [
+    {
+      "description": "Item where printed total is wrong",
+      "quantity": "3",
+      "unit_price": "100.00",
+      "total": "999.99",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": []
+    }
+  ]
+}

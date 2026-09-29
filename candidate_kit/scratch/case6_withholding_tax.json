@@ -1,0 +1,36 @@
+{
+  "invoice_number": "C006",
+  "currency": "THB",
+  "taxes": [
+    {
+      "tax_type": "VAT",
+      "tax_name": "Thailand VAT 7%",
+      "tax_rate": "7",
+      "tax_amount": "",
+      "tax_type_code": "TH_070_VAT"
+    },
+    {
+      "tax_type": "WHT",
+      "tax_name": "Thailand Withholding 3%",
+      "tax_rate": "",
+      "tax_amount": "-30.00",
+      "tax_type_code": "TH_WHT_003"
+    }
+  ],
+  "discount_amount": "",
+  "freight_charges": "",
+  "insurance_charges": "",
+  "extra_charges": "",
+  "excise_duties": "",
+  "line_items": [
+    {
+      "quantity": "1",
+      "unit_price": "1000.00",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": []
+    }
+  ]
+}

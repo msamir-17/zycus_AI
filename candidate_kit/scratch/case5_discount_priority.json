@@ -1,0 +1,22 @@
+{
+  "invoice_number": "C005",
+  "currency": "EUR",
+  "taxes": [],
+  "discount_amount": "",
+  "freight_charges": "",
+  "insurance_charges": "",
+  "extra_charges": "",
+  "excise_duties": "",
+  "line_items": [
+    {
+      "description": "Both discount fields filled - percentage wins",
+      "quantity": "10",
+      "unit_price": "100.00",
+      "discount": "200.00",
+      "discount_percentage": "10",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": []
+    }
+  ]
+}

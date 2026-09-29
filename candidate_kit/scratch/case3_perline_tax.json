@@ -1,0 +1,46 @@
+{
+  "invoice_number": "C003",
+  "currency": "EUR",
+  "taxes": [],
+  "discount_amount": "",
+  "freight_charges": "",
+  "insurance_charges": "",
+  "extra_charges": "",
+  "excise_duties": "",
+  "line_items": [
+    {
+      "quantity": "4",
+      "unit_price": "73.00",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": [
+        {
+          "tax_type": "VAT",
+          "tax_name": "German VAT 19%",
+          "tax_rate": "19",
+          "tax_amount": "",
+          "tax_type_code": "DE_190_VAT"
+        }
+      ]
+    },
+    {
+      "quantity": "2",
+      "unit_price": "73.00",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": [
+        {
+          "tax_type": "VAT",
+          "tax_name": "German VAT 19%",
+          "tax_rate": "19",
+          "tax_amount": "",
+          "tax_type_code": "DE_190_VAT"
+        }
+      ]
+    }
+  ]
+}

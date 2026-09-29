@@ -1,0 +1,41 @@
+{
+  "invoice_number": "C007A",
+  "currency": "EUR",
+  "taxes": [
+    {
+      "tax_type": "VAT",
+      "tax_name": "German VAT 19%",
+      "tax_rate": "19",
+      "tax_amount": "",
+      "tax_type_code": "DE_190_VAT"
+    }
+  ],
+  "discount_amount": "",
+  "freight_charges": "",
+  "insurance_charges": "",
+  "extra_charges": "",
+  "excise_duties": "",
+  "line_items": [
+    {
+      "description": "Goods",
+      "quantity": "1",
+      "unit_price": "500.00",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": []
+    },
+    {
+      "description": "Freight (as line item)",
+      "item_type": "FREIGHT",
+      "quantity": "1",
+      "unit_price": "50.00",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": []
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "invoice_number": "C001",
+  "currency": "EUR",
+  "taxes": [],
+  "discount_amount": "",
+  "freight_charges": "",
+  "insurance_charges": "",
+  "extra_charges": "",
+  "excise_duties": "",
+  "line_items": [
+    {
+      "quantity": "4",
+      "unit_price": "73.00",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": []
+    },
+    {
+      "quantity": "2",
+      "unit_price": "73.00",
+      "discount": "",
+      "discount_percentage": "",
+      "tax_rate": "",
+      "tax_amount": "",
+      "taxes": []
+    }
+  ]
+}
