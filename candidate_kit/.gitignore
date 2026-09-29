@@ -1,0 +1,7 @@
+cache/
+output/
+__pycache__/
+.env
+scratch/
+*.pyc
+.DS_Store
