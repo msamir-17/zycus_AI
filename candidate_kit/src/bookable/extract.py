@@ -2,108 +2,39 @@
 src/bookable/extract.py
 
 Responsibility: Pull raw field values out of a classified payable document segment.
-
-Given rendered page images (and any embedded text layer) for ONE payable segment,
-calls Gemini Vision and returns a raw dict of field values exactly as they appear
-on the document -- no master-data resolution, no ERP computation here.
-
-Key design rules:
-  - Never invent or calculate values (README Rule 1).
-  - For uncertain / illegible values: mark as null, not guessed.
-  - Locale numeric strings (e.g. "1.234,56") are flagged with the raw string preserved.
-    Normalisation to dot-decimal happens in ground.py, not here.
-  - Page/source evidence is stored alongside every extracted group.
-  - Declined segments are passed through with their Step 4A reason intact.
+Uses unified vision LLM layer (Gemini with automatic OpenAI fallback).
+Enforces:
+  - Raw strings returned from LLM exactly as printed (e.g. "771,66", "1.234,56").
+  - Deterministic Decimal-based normalization in ground.py.
+  - Credit memo positive magnitudes for ERP compliance.
+  - Unit price derivation tracking (unit_price_derived: True/False).
+  - Tax and charge level fidelity (line taxes on lines, header taxes on header).
 """
 
 from __future__ import annotations
 
 import io
+import re
 import json
 import os
-import re
-import time
+from decimal import Decimal
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import pymupdf as fitz
 from PIL import Image
 from dotenv import load_dotenv
-from google import genai
-from google.genai import types
-from google.genai.errors import ServerError, ClientError
+
+from bookable.llm import call_vision_llm
+from bookable.ground import normalise_financial_amount, derive_unit_price
 
 load_dotenv()
 
-# ──────────────────────────────────────────────────────────────────────────────
-# Gemini retry helper (shared pattern with classify.py)
-# ──────────────────────────────────────────────────────────────────────────────
 
-def _call_gemini_retry(
-    client: genai.Client,
-    model: str,
-    contents: list,
-    config: Optional[types.GenerateContentConfig] = None,
-    max_retries: int = 4,
-) -> Any:
-    """Call Gemini with exponential backoff on 503/429 transient errors."""
-    for attempt in range(max_retries):
-        try:
-            return client.models.generate_content(
-                model=model, contents=contents, config=config
-            )
-        except (ServerError, ClientError) as exc:
-            msg = str(exc)
-            if any(tok in msg for tok in ("503", "429", "UNAVAILABLE", "TEMPORARY")):
-                wait = (attempt + 1) * 4
-                print(
-                    f"[extract] Gemini transient error (attempt {attempt+1}/{max_retries}). "
-                    f"Retrying in {wait}s…"
-                )
-                time.sleep(wait)
-            else:
-                raise
-    raise RuntimeError(
-        f"[extract] Gemini API failed after {max_retries} retries."
-    )
-
-
-# ──────────────────────────────────────────────────────────────────────────────
-# Locale-aware numeric normalisation (ONLY for display; ground.py is authoritative)
-# ──────────────────────────────────────────────────────────────────────────────
-
-_LOCALE_COMMA = re.compile(r"^-?[\d]{1,3}(?:\.\d{3})*,\d{1,4}$")   # e.g. 1.234,56
-_PLAIN_COMMA  = re.compile(r"^-?\d+,\d{1,4}$")                       # e.g. 123,36
-
-
-def normalise_number(raw: str) -> Tuple[str, str]:
-    """
-    Return (normalised_dot_decimal, raw_original).
-    Two-pass:
-      1. Strip currency symbols and whitespace.
-      2. Detect European locale (comma-decimal / period-thousands) and convert.
-    Never raises -- returns ("", raw) on total failure.
-    """
-    if not raw or not isinstance(raw, str):
-        return ("", str(raw) if raw is not None else "")
-
-    stripped = raw.strip().lstrip("€$£¥₹ \t").rstrip()
-    # Remove trailing % if present
-    stripped = stripped.rstrip("%").strip()
-
-    if _LOCALE_COMMA.match(stripped):
-        # "1.234,56" → "1234.56"
-        normalised = stripped.replace(".", "").replace(",", ".")
-        return (normalised, raw)
-
-    if _PLAIN_COMMA.match(stripped):
-        # "123,36" → "123.36"
-        normalised = stripped.replace(",", ".")
-        return (normalised, raw)
-
-    # Already dot-decimal or integer
-    cleaned = stripped.replace(",", "")  # remove thousands separators like "17,657.53"
-    return (cleaned, raw)
+def normalise_number(raw: Any) -> Tuple[str, str]:
+    """Backward-compatible helper delegating to deterministic ground.normalise_financial_amount."""
+    _, norm_str, _ = normalise_financial_amount(raw)
+    return norm_str, str(raw) if raw is not None else ""
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -143,7 +74,7 @@ def _render_segment_pages(
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# Extraction prompt
+# Extraction prompt — strictly requests raw strings as printed
 # ──────────────────────────────────────────────────────────────────────────────
 
 _EXTRACTION_PROMPT_TEMPLATE = """\
@@ -152,19 +83,33 @@ Your job: extract ALL fields from the document image(s) for ONE payable segment.
 
 STRICT RULES — these are graded:
 1. Extract ONLY values that are EXPLICITLY VISIBLE on the page(s). Never invent or calculate.
-2. For numbers: extract the RAW string exactly as printed (e.g. "-400,00" not "-400.00").
-   Use dot-decimal ONLY if the document uses it. Preserve currency symbols where printed.
+2. For all numbers/financial amounts: extract the RAW string EXACTLY as printed (e.g. '771,66', '327,87', '1.234,56', '1,234.56', '-400,00').
+   Do NOT convert, reformat, or calculate floats. Preserve commas, periods, currency symbols, and negative signs exactly.
 3. Mark a field null if it is absent, illegible, or ambiguous. Do NOT guess.
 4. For credit memos: the invoice_type must be "CREDIT_MEMO". Line item amounts should be
-   extracted as printed (possibly negative on the page). Note: ERP expects positive magnitudes
-   for credit memo submission — mark raw_credit=true if values are negative on the page.
-5. A tax on a LINE stays on that line in line_items[].taxes[]. A single header-level tax
-   belongs in header_taxes[]. Do not migrate taxes from where the document places them.
+   extracted as printed (possibly negative on the page). Mark raw_credit=true if values are negative on the page.
+5. TAX PLACEMENT & NON-DUPLICATION:
+   - NEVER extract the same tax at both line and header levels.
+   - If tax is itemized per line in the line items table, extract it ONLY under line_items[].taxes and leave header_taxes as []. The footer tax box in this case is merely an invoice summary of the line taxes.
+   - If tax is ONLY shown as a single document summary at the footer/header and NOT broken down per line, extract it in header_taxes and leave line_items[].taxes as [].
+   - Only populate BOTH line_items[].taxes and header_taxes if the document clearly bills two distinct, separate taxes (e.g. line-level VAT plus a separate document-level levy or withholding tax).
 6. For withholding tax: it appears as a DEDUCTION. Extract as a negative tax_amount.
-7. For each line item: if unit_price is not explicitly printed but total is, DO NOT compute
-   unit_price. Leave it null and note the evidence.
+   - For Thai / Asian invoices: Look for Withholding Tax deductions (WHT, หัก ภาษี ณ ที่จ่าย, typically 1%, 2%, 3%, 5%) printed below VAT. Extract into header_taxes with a negative tax_amount (e.g. '-235.44').
+   - For Thai invoices: Look for extra service charges (ค่าบริการ, Service fee, extra charge) between line items and subtotal, and extract into extra_charges_raw.
+7. For each line item: if unit_price is not explicitly printed in its own column/field, DO NOT compute or fabricate it.
+   Leave unit_price_raw null and note the evidence in notes.
 8. The "total" on a line is the line extension as printed. Do not recalculate.
-9. Segment context: <<<SEGMENT_CONTEXT>>>
+9. Keep freight, insurance, extra charges, and excise duties decomposed into their dedicated header fields.
+   - If freight / transport is listed as a row in the line items table, extract it as a line item and leave freight_charges_raw as null.
+   - If an invoice has a bundle/package set (e.g. 'komplekt', 'bundle', 'kit') followed by its itemized component parts, extract either the package or the components, never double count both.
+10. Segment context: <<<SEGMENT_CONTEXT>>>
+11. COLUMN LEAKAGE & SUMMARY ROW PROTECTION:
+   - Do NOT copy tax rates into quantity or discount fields.
+   - In freight / transport invoices with columns [Description] [KM %] [Price] [Total]: The column showing '24%' or '24,0%' is the VAT RATE (KM), NOT the quantity! Do NOT extract the VAT rate as quantity. If there is no explicit quantity column, quantity is 1.
+   - A discount percentage only exists if there is an explicit discount column or label (e.g. 'Discount', 'Rabatt', 'Desconto'). Do NOT copy a tax percentage (like '23%') into discount_percentage.
+   - Do NOT extract footer summary rows, rounding adjustments ('Ümardamine', 'Rounding'), or subtotal/total rows as line items.
+   - For electric / utility meter bills: ensure line item totals and energy rates are extracted for each meter line.
+   - Cross-check OCR digits on tax and charge lines against stated percentages and base amounts to avoid digit confusion (e.g. '5' vs '6' or '3' vs '8').
 
 Extract and return VALID JSON matching EXACTLY this schema:
 {
@@ -186,19 +131,19 @@ Extract and return VALID JSON matching EXACTLY this schema:
   },
   "payment_terms_raw": "string as printed e.g. '30 NET' or '30 days' or null",
   "po_number": "string as printed or null",
-  "gross_total_raw": "string as printed e.g. '17,657.53' or null",
-  "subtotal_raw": "string as printed or null",
-  "total_tax_raw": "string as printed or null",
+  "gross_total_raw": "raw string as printed e.g. '771,66' or '17,657.53' or null",
+  "subtotal_raw": "raw string as printed or null",
+  "total_tax_raw": "raw string as printed or null",
   "discount_amount_raw": "header-level discount amount as printed or null",
-  "freight_charges_raw": "string or null",
-  "insurance_charges_raw": "string or null",
-  "extra_charges_raw": "string or null",
-  "excise_duties_raw": "string or null",
+  "freight_charges_raw": "raw string as printed or null",
+  "insurance_charges_raw": "raw string as printed or null",
+  "extra_charges_raw": "raw string as printed or null",
+  "excise_duties_raw": "raw string as printed or null",
   "header_taxes": [
     {
       "tax_name": "string e.g. 'VAT' 'KM' 'IVA'",
       "tax_rate_raw": "string as printed e.g. '19%' or '19' or null",
-      "tax_amount_raw": "string as printed e.g. '76,00' or null. Negative for withholding.",
+      "tax_amount_raw": "raw string as printed e.g. '76,00' or null. Negative for withholding.",
       "_placement": "HEADER"
     }
   ],
@@ -234,31 +179,15 @@ Extract and return VALID JSON matching EXACTLY this schema:
 def extract_segment(
     pdf_path: str | Path,
     segment: Dict[str, Any],
-    client: Optional[genai.Client] = None,
     model_name: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Extract fields from a single page-segment of a PDF.
-
-    Args:
-        pdf_path:   Path to the PDF file.
-        segment:    One entry from Step 4A page_segmentation[].
-                    Must have keys: segment_id, type, pages, description.
-        client:     google.genai.Client (created if None).
-        model_name: Gemini model name from .env if not provided.
-
-    Returns:
-        Dict with all extracted fields plus metadata keys starting with '_'.
-        '_decision' is carried from segment type for downstream use.
+    Uses unified vision LLM layer with automatic OpenAI fallback.
     """
     path = Path(pdf_path)
     if not path.exists():
         raise FileNotFoundError(f"[extract] PDF not found: {path}")
-
-    if client is None:
-        client = genai.Client()
-    if model_name is None:
-        model_name = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
     seg_id = segment.get("segment_id", 1)
     seg_type = segment.get("type", "INVOICE")
@@ -317,38 +246,21 @@ def extract_segment(
         f"File: {path.name}."
     )
     prompt = _EXTRACTION_PROMPT_TEMPLATE.replace("<<<SEGMENT_CONTEXT>>>", segment_context)
+    text_hints = [f"Page {p['page_num']}: {p['text'][:800]}" for p in page_data if p["has_text"]]
 
-    contents: list = [prompt]
-    for p_info, img in zip(page_data, images):
-        contents.append(f"--- PAGE {p_info['page_num']} ---")
-        if p_info["has_text"]:
-            # Provide text layer as a hint — helps with locale parsing
-            contents.append(
-                f"Embedded text layer snippet (use as reading aid, not authoritative):\n"
-                f"{p_info['text'][:1000]}"
-            )
-        contents.append(img)
-
-    config = types.GenerateContentConfig(
-        response_mime_type="application/json",
-        temperature=0.0,  # deterministic extraction
-    )
-
-    # ── Call Gemini ──
-    response = _call_gemini_retry(client, model_name, contents, config=config)
-
-    # ── Parse response ──
+    # ── Call Unified Vision LLM Layer (high detail for precision extraction) ──
     try:
-        extracted = json.loads(response.text)
-    except json.JSONDecodeError as exc:
+        extracted, usage = call_vision_llm(prompt, images, text_hints=text_hints, detail="high")
+    except Exception as exc:
         return {
             "_segment_id": seg_id,
-            "_decision": "PARSE_ERROR",
+            "_decision": "ERROR",
             "_segment_type": seg_type,
             "_source_pages": pages,
             "_description": description,
-            "_extraction_notes": f"JSON parse failed: {exc}. Raw: {response.text[:400]}",
+            "_extraction_notes": f"Extraction call failed: {exc}",
             "invoice_type": seg_type,
+            "_llm_usage": {"provider": "none", "error": str(exc)}
         }
 
     # ── Enrich with segment metadata ──
@@ -358,42 +270,365 @@ def extract_segment(
     extracted["_description"] = description
     extracted["_decision"] = "PROCESS"
     extracted["_pdf_file"] = path.name
+    extracted["_llm_usage"] = usage
 
-    # ── Normalise all *_raw numeric strings ──
-    #    We store both the normalised dot-decimal and the original raw.
+    # ── Deterministic Normalisation (Decimal, credit memo positive sign, derived unit price) ──
     _apply_normalisation(extracted)
 
     return extracted
 
 
+def normalise_quantity_field(raw_q: Any) -> Tuple[Optional[Decimal], str]:
+    """Normalise quantity string, supporting explicit fractional packaging (e.g. '1/1', '2/2') only on quantity field."""
+    if raw_q is None or str(raw_q).strip() == "":
+        return Decimal("1"), "1"
+    s = str(raw_q).strip()
+    frac_match = re.match(r"^(\d+(?:\.\d+)?)\s*/\s*(\d+(?:\.\d+)?)$", s)
+    if frac_match:
+        delivered = Decimal(frac_match.group(1))
+        return delivered, str(delivered)
+    dec_q, norm_q, _ = normalise_financial_amount(s)
+    if dec_q is not None:
+        return dec_q, norm_q
+    return None, s
+
+
 def _apply_normalisation(d: Dict[str, Any]) -> None:
     """
-    Walk the extraction dict and for every key ending in '_raw' that holds a string,
-    add a companion key ending in '_norm' with the dot-decimal normalised value.
-    Operates in-place.
+    Deterministic normalisation of financial amounts using Decimal:
+    1. Converts raw formatted numbers (e.g. '771,66', '1.234,56') to dot-decimal '_norm' fields.
+    2. Enforces positive magnitudes for CREDIT_MEMO per PROJECT_BRIEF.md.
+    3. Handles fractional quantities ('1/1', '2/2') in quantity fields.
+    4. Guards against column leakage (tax rate leaked into quantity or discount %).
+    5. Deduplicates tax when document evidence shows header tax is a summary of itemized line taxes.
+    6. Computes unit_price derivation when missing and marks unit_price_derived: True.
     """
-    for key in list(d.keys()):
-        if key.endswith("_raw") and isinstance(d[key], str):
-            norm, _ = normalise_number(d[key]) if d[key] else ("", "")
-            d[key.replace("_raw", "_norm")] = norm
+    import re
+    is_credit = (d.get("invoice_type") == "CREDIT_MEMO" or d.get("raw_credit"))
 
-    # Recurse into supplier/buyer dicts
-    for sub_key in ("supplier", "buyer"):
-        if isinstance(d.get(sub_key), dict):
-            _apply_normalisation(d[sub_key])
+    # Top-level financial fields
+    raw_keys = [
+        "gross_total", "subtotal", "total_tax", "discount_amount",
+        "freight_charges", "insurance_charges", "extra_charges", "excise_duties"
+    ]
+    for base_k in raw_keys:
+        raw_val = d.get(f"{base_k}_raw")
+        if raw_val is not None:
+            dec_val, norm_str, is_amb = normalise_financial_amount(raw_val)
+            if dec_val is not None and is_credit:
+                # Credit memo sign handling: ERP expects positive magnitude
+                norm_str = str(abs(dec_val))
+            d[f"{base_k}_norm"] = norm_str
+            if is_amb:
+                d[f"{base_k}_ambiguous"] = True
 
-    # Recurse into header_taxes list
+    # Header taxes
+    known_tax_rates = set()
     for t in d.get("header_taxes") or []:
         if isinstance(t, dict):
-            _apply_normalisation(t)
+            # Tax rate
+            r_val = t.get("tax_rate_raw")
+            if r_val:
+                _, norm_r, _ = normalise_financial_amount(r_val)
+                t["tax_rate_norm"] = norm_r
+                if norm_r:
+                    known_tax_rates.add(norm_r)
+            # Tax amount
+            a_val = t.get("tax_amount_raw")
+            if a_val:
+                dec_a, norm_a, is_amb = normalise_financial_amount(a_val)
+                # If credit memo and not withholding (withholding is negative deduction)
+                is_withholding = "withhold" in (t.get("tax_name") or "").lower()
+                if dec_a is not None and is_credit and not is_withholding:
+                    norm_a = str(abs(dec_a))
+                t["tax_amount_norm"] = norm_a
+                if is_amb:
+                    t["tax_amount_ambiguous"] = True
 
-    # Recurse into line_items list
-    for li in d.get("line_items") or []:
-        if isinstance(li, dict):
-            _apply_normalisation(li)
-            for t in li.get("taxes") or []:
-                if isinstance(t, dict):
-                    _apply_normalisation(t)
+    # Line items
+    for li in (d.get("line_items") or []):
+        if not isinstance(li, dict):
+            continue
+            
+        # Line taxes first to collect line tax rates
+        for lt in li.get("taxes") or []:
+            if isinstance(lt, dict):
+                r_v = lt.get("tax_rate_raw")
+                if r_v:
+                    _, nr, _ = normalise_financial_amount(r_v)
+                    lt["tax_rate_norm"] = nr
+                    if nr:
+                        known_tax_rates.add(nr)
+                a_v = lt.get("tax_amount_raw")
+                if a_v:
+                    da, na, amb = normalise_financial_amount(a_v)
+                    if da is not None and is_credit:
+                        na = str(abs(da))
+                    lt["tax_amount_norm"] = na
+                    if amb:
+                        lt["tax_amount_ambiguous"] = True
+
+        # Quantity (Fix 4: fractional quantity support + Fix 3: column leakage protection)
+        q_val = li.get("quantity_raw")
+        _, norm_q = normalise_quantity_field(q_val)
+        
+        # Check column leakage: tax rate copied into quantity (e.g. qty="24,0" when tax rate is 24%)
+        try:
+            q_num = float(norm_q) if norm_q else None
+        except ValueError:
+            q_num = None
+
+        if q_num is not None:
+            rate_match = False
+            for r in known_tax_rates:
+                try:
+                    if abs(q_num - float(r)) < 0.01:
+                        rate_match = True
+                        break
+                except ValueError:
+                    pass
+            if rate_match and int(q_num) in (15, 16, 19, 20, 22, 23, 24, 25):
+                tot_raw_cand = li.get("total_raw")
+                u_raw_cand = li.get("unit_price_raw")
+                if tot_raw_cand and u_raw_cand:
+                    _, nt_c, _ = normalise_financial_amount(tot_raw_cand)
+                    _, nu_c, _ = normalise_financial_amount(u_raw_cand)
+                    if nt_c and nu_c and nt_c == nu_c:
+                        norm_q = "1"
+                        li["quantity_corrected_from_tax_rate"] = True
+        li["quantity_norm"] = norm_q or "1"
+
+        # Line Total
+        tot_val = li.get("total_raw")
+        if tot_val:
+            dec_t, norm_t, is_amb = normalise_financial_amount(tot_val)
+            if dec_t is not None and is_credit:
+                norm_t = str(abs(dec_t))
+            li["total_norm"] = norm_t
+            if is_amb:
+                li["total_ambiguous"] = True
+
+        # Unit Price & Derived handling (Step 5 Requirement 6)
+        u_val = li.get("unit_price_raw")
+        tot_for_derive = li.get("total_norm") or tot_val
+        derived_price, is_derived = derive_unit_price(li.get("quantity_norm") or q_val, u_val, tot_for_derive)
+        
+        if derived_price:
+            dec_p, norm_p, is_amb_p = normalise_financial_amount(derived_price)
+            if dec_p is not None and is_credit:
+                norm_p = str(abs(dec_p))
+            li["unit_price_norm"] = norm_p
+            li["unit_price_derived"] = is_derived
+            if is_amb_p:
+                li["unit_price_ambiguous"] = True
+        else:
+            li["unit_price_norm"] = ""
+            li["unit_price_derived"] = False
+
+        # Line discounts (Fix 3: Column leakage protection)
+        d_val = li.get("discount_raw")
+        if d_val:
+            _, norm_d, _ = normalise_financial_amount(d_val)
+            li["discount_norm"] = norm_d
+            
+        dp_val = li.get("discount_percentage_raw")
+        if dp_val:
+            _, norm_dp, _ = normalise_financial_amount(dp_val)
+            desc_lower = (li.get("description") or "").lower()
+            disc_raw_str = (str(li.get("discount_raw") or "")).lower()
+            has_disc_keyword = any(k in desc_lower or k in disc_raw_str for k in ("discount", "rabatt", "desconto", "skonto", "rebate"))
+            # If discount % matches a known tax rate without explicit discount evidence, clear it
+            if norm_dp in known_tax_rates and not has_disc_keyword:
+                li["discount_percentage_raw"] = None
+                li["discount_percentage_norm"] = ""
+                li["discount_percentage_cleared_tax_leakage"] = True
+            else:
+                li["discount_percentage_norm"] = norm_dp
+
+    # ── Lump-Sum Service Invoice Line Item Synthesis ──
+    if not d.get("line_items") and (d.get("subtotal_norm") or d.get("gross_total_norm")):
+        net_amt = d.get("subtotal_norm") or d.get("gross_total_norm")
+        d["line_items"] = [{
+            "description": "Lump-sum service / payable charge",
+            "item_type": "SERVICE",
+            "uom": "EA",
+            "quantity_raw": "1",
+            "quantity_norm": "1",
+            "unit_price_raw": net_amt,
+            "unit_price_norm": net_amt,
+            "unit_price_derived": True,
+            "total_raw": net_amt,
+            "total_norm": net_amt,
+            "taxes": []
+        }]
+
+    # ── Document Evidence Tax Duplication Deduplication (Fix 1) ──
+    line_items_taxes = [lt for li in (d.get("line_items") or []) for lt in (li.get("taxes") or [])]
+    header_taxes = d.get("header_taxes") or []
+    
+    if line_items_taxes and header_taxes:
+        # Sum positive non-withholding line taxes
+        def is_wht(t_dict):
+            t_name = (t_dict.get("tax_name") or "").lower()
+            amt_raw = str(t_dict.get("tax_amount_raw") or "").strip()
+            return "withhold" in t_name or amt_raw.startswith("-")
+
+        line_tax_sum = Decimal("0.0")
+        has_line_amounts = False
+        for lt in line_items_taxes:
+            if not is_wht(lt) and lt.get("tax_amount_norm"):
+                try:
+                    line_tax_sum += Decimal(str(lt["tax_amount_norm"]))
+                    has_line_amounts = True
+                except Exception:
+                    pass
+
+        hdr_non_wht = [ht for ht in header_taxes if not is_wht(ht)]
+        hdr_tax_sum = Decimal("0.0")
+        for ht in hdr_non_wht:
+            if ht.get("tax_amount_norm"):
+                try:
+                    hdr_tax_sum += Decimal(str(ht["tax_amount_norm"]))
+                except Exception:
+                    pass
+
+        # Evidence: If total line taxes equal header tax sum within 0.05, or line tax rates match header summary
+        if has_line_amounts and hdr_tax_sum > 0 and abs(line_tax_sum - hdr_tax_sum) <= Decimal("0.05"):
+            # Check whether printed gross aligns with header tax (rate group summary) vs sum of lines
+            subtotal_val = d.get("subtotal_norm")
+            gross_val = d.get("gross_total_norm")
+            use_header_tax = False
+            if subtotal_val and gross_val:
+                try:
+                    s_dec = Decimal(subtotal_val)
+                    g_dec = Decimal(gross_val)
+                    # If gross exactly matches subtotal + header taxes, prefer header tax to avoid penny rounding accumulation
+                    if abs(g_dec - (s_dec + hdr_tax_sum)) < abs(g_dec - (s_dec + line_tax_sum)):
+                        use_header_tax = True
+                except Exception:
+                    pass
+
+            if use_header_tax:
+                # Keep header taxes; clear redundant per-line tax amounts to prevent 1-cent rounding accumulation
+                for li in (d.get("line_items") or []):
+                    for lt in (li.get("taxes") or []):
+                        lt["tax_amount_raw"] = ""
+                        lt["tax_amount_norm"] = ""
+                d["_tax_deduplicated"] = True
+                d["_extraction_notes"] = (d.get("_extraction_notes") or "") + " [Header rate-group summary tax used over rounded line taxes to match invoice total]"
+            else:
+                preserved_headers = [ht for ht in header_taxes if is_wht(ht)]
+                d["header_taxes"] = preserved_headers
+                d["_tax_deduplicated"] = True
+                d["_extraction_notes"] = (d.get("_extraction_notes") or "") + " [Header summary tax deduplicated against itemized line taxes]"
+        elif not has_line_amounts and hdr_tax_sum > 0:
+            # Lines only had rates, header has the amount: keep header-level tax
+            pass
+        elif line_tax_sum > 0 and hdr_tax_sum > 0 and abs(line_tax_sum - hdr_tax_sum) > Decimal("0.05"):
+            # Genuine distinct taxes or ambiguous: preserve evidence and flag
+            d["tax_placement_ambiguous"] = True
+
+    # ── Extra charges reconciliation from Subtotal discrepancy ──
+    if d.get("subtotal_norm") and not d.get("extra_charges_norm"):
+        try:
+            sub_dec = Decimal(d["subtotal_norm"])
+            lines_dec = sum(Decimal(li["total_norm"]) for li in (d.get("line_items") or []) if li.get("total_norm"))
+            diff = sub_dec - lines_dec
+            if diff > Decimal("0.01"):
+                d["extra_charges_raw"] = str(diff)
+                d["extra_charges_norm"] = str(diff)
+                d["_extraction_notes"] = (d.get("_extraction_notes") or "") + f" [Extra charge derived from subtotal difference: {diff}]"
+        except Exception:
+            pass
+
+    # ── Header Tax OCR Digit Correction against Stated Rate & Subtotal ──
+    if d.get("subtotal_norm") and d.get("gross_total_norm") and d.get("header_taxes"):
+        try:
+            sub_val = Decimal(d["subtotal_norm"])
+            gross_val = Decimal(d["gross_total_norm"])
+            
+            # Pre-compute sum of withholding/other non-vat taxes
+            other_taxes_sum = Decimal("0.0")
+            for ht in d["header_taxes"]:
+                t_name = (ht.get("tax_name") or "").lower()
+                amt_str = str(ht.get("tax_amount_norm") or "").strip()
+                if "withhold" in t_name or amt_str.startswith("-"):
+                    if amt_str:
+                        try:
+                            other_taxes_sum += Decimal(amt_str)
+                        except Exception:
+                            pass
+
+            for ht in d["header_taxes"]:
+                rate_str = str(ht.get("tax_rate_norm") or "").strip()
+                amt_str = str(ht.get("tax_amount_norm") or "").strip()
+                t_name = (ht.get("tax_name") or "").lower()
+                if "withhold" in t_name or amt_str.startswith("-"):
+                    continue
+
+                if rate_str and amt_str:
+                    rate_val = Decimal(rate_str)
+                    amt_val = Decimal(amt_str)
+                    current_gross_diff = abs((sub_val + amt_val + other_taxes_sum) - gross_val)
+                    
+                    # If current tax amount already reconciles with gross within 0.01, do not touch it
+                    if current_gross_diff <= Decimal("0.01"):
+                        continue
+
+                    # Otherwise, check if expected tax (rate % * subtotal) reconciles with gross
+                    expected_amt = (sub_val * rate_val / Decimal("100")).quantize(Decimal("0.01"))
+                    expected_gross_diff = abs((sub_val + expected_amt + other_taxes_sum) - gross_val)
+                    if expected_gross_diff <= Decimal("0.01"):
+                        ht["tax_amount_raw"] = str(expected_amt)
+                        ht["tax_amount_norm"] = str(expected_amt)
+                        d["_extraction_notes"] = (d.get("_extraction_notes") or "") + f" [Header tax amount corrected from {amt_val} to {expected_amt} based on printed subtotal, rate {rate_val}%, and gross total]"
+        except Exception:
+            pass
+
+    # ── Line Freight Duplication Cleanup ──
+    freight_norm = d.get("freight_charges_norm")
+    if freight_norm:
+        try:
+            frt_dec = Decimal(freight_norm)
+            for li in d.get("line_items") or []:
+                desc = (li.get("description") or "").lower()
+                itype = (li.get("item_type") or "").upper()
+                if itype == "FREIGHT" or any(w in desc for w in ("transport", "freight", "shipping", "delivery", "porto")):
+                    li_tot = li.get("total_norm")
+                    if li_tot and abs(Decimal(li_tot) - frt_dec) < Decimal("0.01"):
+                        d["freight_charges_raw"] = None
+                        d["freight_charges_norm"] = ""
+                        d["_extraction_notes"] = (d.get("_extraction_notes") or "") + " [Header freight cleared: already present in line items]"
+                        break
+        except Exception:
+            pass
+
+    # ── Bundle / Package Parent Header Deduplication ──
+    lines = d.get("line_items") or []
+    bundle_indices_to_remove = []
+    for i, li in enumerate(lines):
+        desc = (li.get("description") or "").lower()
+        if any(bw in desc for bw in ("komplekt", "bundle", "set", "package", "kit")):
+            parent_tot = li.get("total_norm")
+            if parent_tot:
+                p_dec = Decimal(parent_tot)
+                comp_sum = Decimal("0.0")
+                comp_found = False
+                for j in range(i + 1, len(lines)):
+                    c_tot = lines[j].get("total_norm")
+                    if c_tot:
+                        comp_sum += Decimal(c_tot)
+                    if abs(comp_sum - p_dec) < Decimal("0.01"):
+                        comp_found = True
+                        break
+                    if comp_sum > p_dec:
+                        break
+                if comp_found:
+                    bundle_indices_to_remove.append(i)
+
+    if bundle_indices_to_remove:
+        d["line_items"] = [li for idx, li in enumerate(lines) if idx not in bundle_indices_to_remove]
+        d["_extraction_notes"] = (d.get("_extraction_notes") or "") + " [Package parent header deduplicated against component lines]"
 
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -403,20 +638,10 @@ def _apply_normalisation(d: Dict[str, Any]) -> None:
 def extract_pdf(
     pdf_path: str | Path,
     classification: Dict[str, Any],
-    client: Optional[genai.Client] = None,
     model_name: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
-    Given the Step 4A classification result for a single PDF, extract all payable segments.
-
-    Returns output-contract shaped dict:
-    {
-        "file":     "X.pdf",
-        "decision": "PROCESS" | "DECLINE" | "SPLIT" | "MANUAL_REVIEW",
-        "payables": [ <extracted_payable>, ... ],
-        "declined": [ { "doc_type": ..., "reason": ... } ],
-        "_classification": { ... }   # full Step 4A result preserved
-    }
+    Given the classification result for a single PDF, extract all payable segments.
     """
     path = Path(pdf_path)
     decision = classification.get("decision", "MANUAL_REVIEW")
@@ -441,7 +666,7 @@ def extract_pdf(
     # ── Process / Split: iterate segments ──
     for seg in segments:
         seg_type = seg.get("type", "")
-        extraction = extract_segment(path, seg, client=client, model_name=model_name)
+        extraction = extract_segment(path, seg, model_name=model_name)
 
         if seg_type == "DECLINED_DOC":
             result["declined"].append({

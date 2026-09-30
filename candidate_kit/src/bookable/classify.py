@@ -93,24 +93,22 @@ def render_pdf_for_classification(pdf_path: Path, max_pages: int = 20) -> tuple[
     return page_data, images
 
 
-def classify_pdf(pdf_path: str | Path, client: Optional[genai.Client] = None, model_name: Optional[str] = None) -> Dict[str, Any]:
+from bookable.llm import call_vision_llm
+
+
+def classify_pdf(pdf_path: str | Path, model_name: Optional[str] = None) -> Dict[str, Any]:
     """
-    Classify a single PDF document using Gemini Vision.
+    Classify a single PDF document using the unified vision LLM layer with automatic fallback.
     Returns structured dict containing document_type, decision, page_segmentation, etc.
     """
     path = Path(pdf_path)
     if not path.exists():
         raise FileNotFoundError(f"PDF file not found: {path}")
-        
-    if client is None:
-        client = genai.Client()
-    if model_name is None:
-        model_name = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
-        
+
     page_data, images = render_pdf_for_classification(path)
     total_pages = len(page_data)
 
-    # Prompt construction
+    # Prompt construction with Section 9 general segmentation rule
     prompt = (
         "You are an expert Accounts Payable (AP) Document Classification & Page Segmentation Engine for an ERP system.\n"
         f"Document filename: {path.name}\n"
@@ -129,8 +127,12 @@ def classify_pdf(pdf_path: str | Path, client: Optional[genai.Client] = None, mo
         "   - 'SPLIT': Multi-invoice document containing separate distinct payables.\n"
         "   - 'MANUAL_REVIEW': Uncertain or ambiguous layout.\n"
         "4. Document Count: Integer count of distinct bookable payable documents found (0 if DECLINE).\n"
-        "5. Page Segmentation: Map pages to document sections or separate invoices.\n"
-        "6. Rationale: Clear plain-English / Hinglish explanation detailing WHY this classification was chosen based on visible features.\n\n"
+        "5. GENERAL SEGMENTATION RULE (Rule 9):\n"
+        "   A new payable begins ONLY when there is a new invoice number OR a new primary seller/billing party.\n"
+        "   Later pages that repeat the same PO/reference/amount and belong to a third party (e.g. utility bill, delivery note,\n"
+        "   or backup statement attached as pass-through documentation) are ATTACHMENTS of the parent payable, NOT separate payables.\n"
+        "   Do NOT double-count the same amount. Group such attached pages together with the parent payable into ONE segment [1..N].\n"
+        "6. Rationale: Clear plain-English explanation detailing WHY this classification was chosen based on visible features.\n\n"
         "Respond ONLY in valid JSON matching this schema:\n"
         "{\n"
         '  "filename": "' + path.name + '",\n'
@@ -149,32 +151,23 @@ def classify_pdf(pdf_path: str | Path, client: Optional[genai.Client] = None, mo
         '  "rationale": "Clear grounded explanation"\n'
         "}"
     )
-    
-    contents = [prompt]
-    for idx, (p_info, img) in enumerate(zip(page_data, images)):
-        contents.append(f"--- PAGE {p_info['page_num']} ---")
-        if p_info['has_text']:
-            contents.append(f"Extracted Text Layer Snippet:\n{p_info['text'][:500]}")
-        contents.append(img)
-        
-    config = types.GenerateContentConfig(
-        response_mime_type="application/json",
-        temperature=0.1
-    )
-    
-    response = call_gemini_with_retry(client, model_name, contents, config=config)
-    
+
+    text_hints = [f"Page {p['page_num']}: {p['text'][:600]}" for p in page_data if p["has_text"]]
+
     try:
-        result = json.loads(response.text)
+        result, usage = call_vision_llm(prompt, images, text_hints=text_hints, detail="low")
         result["filename"] = path.name
+        result["_llm_usage"] = usage
         return result
-    except json.JSONDecodeError as e:
+    except Exception as e:
         return {
             "filename": path.name,
             "document_type": "UNSURE",
             "decision": "MANUAL_REVIEW",
             "document_count": 0,
             "page_segmentation": [],
-            "decline_reason": "",
-            "rationale": f"Failed to parse JSON response from Gemini: {e}\nRaw output: {response.text[:300]}"
+            "decline_reason": str(e),
+            "rationale": f"LLM execution error: {e}",
+            "_llm_usage": {"provider": "none", "error": str(e)}
         }
+

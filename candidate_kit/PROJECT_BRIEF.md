@@ -333,7 +333,7 @@ Time plan: aim for Steps 1–4B on Wed 30 Sep, 5–6 on Thu 1 Oct, 7–8 Thu nig
 | 3 | ✅ | PDFs rendered; text layer present for some | INV-31 was mislabelled as a PECO bill |
 | 4A | ✅ | Classification pilot done | INV-31 false split resolved (Rule 9: 1 payable, pages 1–3); DU-02 customs decline pending Step 6 |
 | 4B | ✅ | Extraction pilot & validation done | HLD-01 exact match (8161.92 THB); DU-11 positive sign & comma parsing noted; INV-36 unit price noted; INV-31 1 payable |
-| 5 | ⏳ | | |
+| 5 | ⚠️ | Baseline run on all 42 PDFs complete; root-cause failure groups cataloged | 5 exact matches, 11 mismatches, 26 rate-limit/flagged docs; general fixes planned |
 | 6 | ⏳ | | |
 | 7 | ⏳ | | |
 | 8 | ⏳ | | |
