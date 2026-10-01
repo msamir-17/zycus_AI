@@ -157,40 +157,72 @@ def normalise_financial_amount(raw: Any) -> Tuple[Optional[Decimal], str, bool]:
 def derive_unit_price(
     quantity_raw: Any,
     unit_price_raw: Any,
-    line_total_raw: Any
+    line_total_raw: Any,
+    discount_raw: Any = None,
+    discount_percentage_raw: Any = None
 ) -> Tuple[Optional[str], bool]:
     """
-    Deterministic unit_price resolution per Step 5 Requirement 6:
-    - If unit_price_raw is present, normalise and keep derived=False.
-    - If unit_price_raw is absent/null, but quantity and line_total are present:
-        compute derived = line_total / quantity (using Decimal).
-        return (derived_unit_price_str, True)
-    - Otherwise return (None, False).
+    Deterministic unit_price resolution per Step 6 Requirement 6:
+    - If unit_price_raw is present:
+        - Check if unit_price_raw equals line_total_raw while quantity > 1 (e.g. batch/lot price per 100 or total copied into unit price).
+          In this case, the true single-unit net price is line_total / quantity (derived=True).
+        - Otherwise, normalise and keep derived=False.
+    - If unit_price_raw is absent/null:
+        - ONLY derive if BOTH printed quantity AND line_total are present, non-zero, and unambiguous.
+        - If either is missing, do NOT derive: return (None, False).
     """
-    # If explicitly printed
+    d_total, total_str, amb_total = normalise_financial_amount(line_total_raw)
+    d_qty, qty_str, amb_qty = normalise_financial_amount(quantity_raw)
+
+    # 1. If explicitly printed
     if unit_price_raw is not None and str(unit_price_raw).strip() != "":
         d_price, price_str, amb = normalise_financial_amount(unit_price_raw)
+        # Lot / batch pricing check: if unit_price == total and quantity > 1
+        if d_price is not None and d_total is not None and d_qty is not None and d_qty > 1:
+            if abs(d_price - d_total) < Decimal("0.01"):
+                try:
+                    derived = d_total / d_qty
+                    derived_str = f"{derived:.4f}".rstrip("0").rstrip(".") if "." in f"{derived:.4f}" else f"{derived}"
+                    return derived_str, True
+                except Exception:
+                    pass
+
+        # Check if d_price is already consistent with d_total (taking any line discounts into account)
+        d_disc_pct, _, _ = normalise_financial_amount(discount_percentage_raw)
+        d_disc_amt, _, _ = normalise_financial_amount(discount_raw)
+        expected_total = d_qty * d_price if (d_qty is not None and d_price is not None) else None
+        if expected_total is not None and d_disc_pct is not None and d_disc_pct > 0:
+            expected_total = expected_total * (Decimal("1") - d_disc_pct / Decimal("100"))
+        elif expected_total is not None and d_disc_amt is not None and d_disc_amt > 0:
+            expected_total = expected_total - d_disc_amt
+
+        if expected_total is not None and d_total is not None and abs(expected_total - d_total) <= Decimal("0.05"):
+            if d_price is not None:
+                return price_str, False
+            return str(unit_price_raw), False
+
+        # Column leakage check: if d_qty * d_price differs wildly from line total (e.g. section subtotal leaked into unit price)
+        if d_price is not None and d_total is not None and d_qty is not None and d_qty != 0:
+            if abs(d_qty * d_price - d_total) > Decimal("0.05"):
+                try:
+                    derived = d_total / d_qty
+                    derived_str = f"{derived:.4f}".rstrip("0").rstrip(".") if "." in f"{derived:.4f}" else f"{derived}"
+                    return derived_str, True
+                except Exception:
+                    pass
         if d_price is not None:
             return price_str, False
         return str(unit_price_raw), False
 
-    # Check if we can derive from line total & quantity
-    if line_total_raw is None or str(line_total_raw).strip() == "":
+    # 2. If unit_price_raw is absent/null:
+    # Per Step 6 Requirement 6: ONLY derive if BOTH quantity AND line_total are present and valid
+    if quantity_raw is None or str(quantity_raw).strip() == "" or d_qty is None or d_qty == 0 or amb_qty:
         return None, False
-
-    d_total, _, amb_total = normalise_financial_amount(line_total_raw)
-    if d_total is None or amb_total:
+    if line_total_raw is None or str(line_total_raw).strip() == "" or d_total is None or amb_total:
         return None, False
-
-    qty_val = 1
-    if quantity_raw is not None and str(quantity_raw).strip() != "":
-        d_qty, _, _ = normalise_financial_amount(quantity_raw)
-        if d_qty is not None and d_qty != 0:
-            qty_val = d_qty
 
     try:
-        derived = d_total / qty_val
-        # Format to 2 or 4 decimal places without trailing zeros if clean
+        derived = d_total / d_qty
         derived_str = f"{derived:.4f}".rstrip("0").rstrip(".") if "." in f"{derived:.4f}" else f"{derived}"
         return derived_str, True
     except Exception:

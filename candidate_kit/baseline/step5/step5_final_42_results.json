@@ -1,0 +1,3466 @@
+{
+  "run_usage": {
+    "gemini_calls": 0,
+    "openai_calls": 58,
+    "cache_hits": 18,
+    "fallbacks": 58,
+    "retries_429": 18,
+    "errors": 0
+  },
+  "records": [
+    {
+      "filename": "DU-02.pdf",
+      "decision": "DECLINE",
+      "document_type": "CUSTOMS_DOCUMENT",
+      "document_count": 0,
+      "decline_reason": "The document consists of customs invoices and declarations, which are non-payable for accounts payable processing.",
+      "payables": [],
+      "declined": [
+        {
+          "doc_type": "CUSTOMS_DOCUMENT",
+          "reason": "The document consists of customs invoices and declarations, which are non-payable for accounts payable processing."
+        }
+      ],
+      "classification_rationale": "The document contains multiple pages labeled as 'Customs Consolidated Invoice' and 'Customs Detailed Invoice', indicating that it is related to customs documentation rather than a vendor commercial invoice for goods or services purchased. Therefore, it does not meet the criteria for processing as a payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 5.34,
+        "tokens": {
+          "prompt_tokens": 57206,
+          "completion_tokens": 133,
+          "total_tokens": 57339,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "DU-03.pdf",
+      "decision": "DECLINE",
+      "document_type": "NON_PAYABLE",
+      "document_count": 0,
+      "decline_reason": "All pages consist of shipping documents, air waybills, and non-payable attachments.",
+      "payables": [],
+      "declined": [
+        {
+          "doc_type": "NON_PAYABLE",
+          "reason": "All pages consist of shipping documents, air waybills, and non-payable attachments."
+        }
+      ],
+      "classification_rationale": "The document contains various shipping notes and air waybills, which are not classified as payable invoices. There are no vendor commercial invoices present, and thus the entire document is deemed non-payable.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.92,
+        "tokens": {
+          "prompt_tokens": 34542,
+          "completion_tokens": 115,
+          "total_tokens": 34657,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "DU-05.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "7363916",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-06-30",
+          "currency": "SGD",
+          "supplier_name": "Vantek Asia Pte Ltd.",
+          "buyer_name": "Fairmont Technologies Inc",
+          "printed_gross": 771.66,
+          "erp_gross": 77166.0,
+          "delta": -76394.34,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "Net_90",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 4.85,
+            "tokens": {
+              "prompt_tokens": 38374,
+              "completion_tokens": 401,
+              "total_tokens": 38775,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a tax invoice issued by a vendor, containing an invoice number, billing details, and a total amount due, which qualifies it as a bookable payable. There are no indications of it being a credit memo, customs document, or any other non-payable type.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.23,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 160,
+          "total_tokens": 3539,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "DU-05s.pdf",
+      "decision": "DECLINE",
+      "document_type": "NON_PAYABLE",
+      "document_count": 0,
+      "decline_reason": "All pages consist of delivery notes and a shipment receipt, which are non-payable documents.",
+      "payables": [],
+      "declined": [
+        {
+          "doc_type": "NON_PAYABLE",
+          "reason": "All pages consist of delivery notes and a shipment receipt, which are non-payable documents."
+        }
+      ],
+      "classification_rationale": "The document contains multiple delivery notes and a shipment receipt, none of which qualify as invoices or credit memos. They do not represent payable transactions but rather serve as supporting documentation for shipments, thus falling under the non-payable category.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.89,
+        "tokens": {
+          "prompt_tokens": 43043,
+          "completion_tokens": 123,
+          "total_tokens": 43166,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "DU-06.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "FN 05/80906935",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-06-15",
+          "currency": "EUR",
+          "supplier_name": "Blackpine Supply S.A.",
+          "buyer_name": "Northwind SUPPORT SERVICES PT, UNIPESSOAL Cloverdale Distribution LDA",
+          "printed_gross": 153.58,
+          "erp_gross": 153.58,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 5,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit price printed for line items. Total tax not clearly defined at header level.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 10.9,
+            "tokens": {
+              "prompt_tokens": 75212,
+              "completion_tokens": 821,
+              "total_tokens": 76033,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document contains a vendor commercial invoice with clear details of goods purchased, including an invoice number and billing information. Both pages are part of the same invoice, as they share the same invoice number and seller information, thus they are grouped together as one payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 6.45,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 158,
+          "total_tokens": 6370,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "DU-08.pdf",
+      "decision": "DECLINE",
+      "document_type": "STATEMENT",
+      "document_count": 0,
+      "decline_reason": "The document is a reminder notice (Mahnung) and does not qualify as a payable invoice or credit memo.",
+      "payables": [],
+      "declined": [
+        {
+          "doc_type": "STATEMENT",
+          "reason": "The document is a reminder notice (Mahnung) and does not qualify as a payable invoice or credit memo."
+        }
+      ],
+      "classification_rationale": "The content of the document indicates it is a reminder for payment rather than a commercial invoice for goods or services. It lacks the necessary elements of an invoice, such as a clear invoice number, itemized charges, or vendor details typically found in payable documents.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.53,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 130,
+          "total_tokens": 3509,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "DU-09.pdf",
+      "decision": "DECLINE",
+      "document_type": "NON_PAYABLE",
+      "document_count": 0,
+      "decline_reason": "The document is a sponsorship form and not a payable invoice or credit memo.",
+      "payables": [],
+      "declined": [
+        {
+          "doc_type": "NON_PAYABLE",
+          "reason": "The document is a sponsorship form and not a payable invoice or credit memo."
+        }
+      ],
+      "classification_rationale": "The content of the document consists of a request form for donations and sponsorship, which does not represent a commercial invoice or any payable document. It includes details about a sponsorship request rather than a transaction for goods or services purchased.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 4.02,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 117,
+          "total_tokens": 6329,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "DU-10.pdf",
+      "decision": "PROCESS",
+      "document_type": "CREDIT_MEMO",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "59000366703",
+          "invoice_type": "CREDIT_MEMO",
+          "invoice_date": "2026-04-15",
+          "currency": "GBP",
+          "supplier_name": "Northwind Services UK Limited",
+          "buyer_name": "Blackpine Consulting Limited",
+          "printed_gross": 5076.17,
+          "erp_gross": 5076.17,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 2,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "Net_30",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 8.14,
+            "tokens": {
+              "prompt_tokens": 38372,
+              "completion_tokens": 516,
+              "total_tokens": 38888,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is identified as a credit memo due to the presence of a credit note title, customer details, and line items indicating adjustments to a payable balance. It includes specific amounts and references to products, which are characteristic of a credit memo rather than an invoice or other document types.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.12,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 159,
+          "total_tokens": 3538,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "DU-11.pdf",
+      "decision": "PROCESS",
+      "document_type": "CREDIT_MEMO",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "6265-K",
+          "invoice_type": "CREDIT_MEMO",
+          "invoice_date": "2025-03-16",
+          "currency": "EUR",
+          "supplier_name": "Tavolo OÜ",
+          "buyer_name": "Northwind Operations OÜ",
+          "printed_gross": 400.0,
+          "erp_gross": 400.0,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the rules. The unit price is not explicitly printed, so it is marked as null.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 7.37,
+            "tokens": {
+              "prompt_tokens": 38376,
+              "completion_tokens": 428,
+              "total_tokens": 38804,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document contains a credit memo with a specific reference number and details about the adjustment of a payable balance. It includes a total amount and is formatted in a way typical for credit memos, indicating it is a valid document for processing in accounts payable.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.06,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 157,
+          "total_tokens": 3536,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "HLD-01.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": null,
+          "invoice_type": "INVOICE",
+          "invoice_date": "2023-05-05",
+          "currency": "THB",
+          "supplier_name": "บริษัท ชิงค์ ครีเอชั่น จำกัด",
+          "buyer_name": "Northwind SUPPORT SERVICES (THAILAND) LIMITED",
+          "printed_gross": 8161.92,
+          "erp_gross": 8161.92,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit invoice number found. The invoice type is INVOICE. The unit price is not explicitly printed in its own column/field. [Extra charge derived from subtotal difference: 648.00] [Header tax amount corrected from 649.36 to 549.36 based on printed subtotal, rate 7%, and gross total]",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.54,
+            "tokens": {
+              "prompt_tokens": 38373,
+              "completion_tokens": 470,
+              "total_tokens": 38843,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice, as indicated by the title 'INVOICE' at the top and the presence of line items, quantities, and a total amount due. It meets the criteria for a bookable payable, making it suitable for processing.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.53,
+        "tokens": {
+          "prompt_tokens": 3381,
+          "completion_tokens": 152,
+          "total_tokens": 3533,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "HLD-03.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "ZFI",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-12-02",
+          "currency": "EUR",
+          "supplier_name": "Larkspur Print ou",
+          "buyer_name": null,
+          "printed_gross": 67.25,
+          "erp_gross": 131.1,
+          "delta": -63.85,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit price printed in its own column. Quantity is assumed to be 1.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 6.09,
+            "tokens": {
+              "prompt_tokens": 38375,
+              "completion_tokens": 405,
+              "total_tokens": 38780,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice as it contains an invoice number, seller details, and line items for goods/services purchased, indicating it is a bookable payable ready for extraction.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.21,
+        "tokens": {
+          "prompt_tokens": 3381,
+          "completion_tokens": 139,
+          "total_tokens": 3520,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "HLD-05.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "7769922058",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-06-12",
+          "currency": "EUR",
+          "supplier_name": "Northwind Support Services PT Unipessoal, Lda",
+          "buyer_name": null,
+          "printed_gross": 835.27,
+          "erp_gross": 1489.59,
+          "delta": -654.32,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "AMBIGUOUS_UNIT_PRICE",
+          "line_items_count": 7,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit prices found in the line items. The total amounts are extracted as printed.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 11.05,
+            "tokens": {
+              "prompt_tokens": 75211,
+              "completion_tokens": 934,
+              "total_tokens": 76145,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document contains a commercial invoice with line items, vendor details, and a total amount due, indicating it is a payable document. Both pages are part of the same invoice as they share the same invoice number and vendor, thus counted as one segment.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.26,
+        "tokens": {
+          "prompt_tokens": 6214,
+          "completion_tokens": 155,
+          "total_tokens": 6369,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "HLD-08.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "162547",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-05-19",
+          "currency": "ZAR",
+          "supplier_name": "Cloverdale Partners CC",
+          "buyer_name": "Meridian Technologies",
+          "printed_gross": 148941.47,
+          "erp_gross": 148941.47,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.79,
+            "tokens": {
+              "prompt_tokens": 38377,
+              "completion_tokens": 435,
+              "total_tokens": 38812,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice, as it includes a detailed breakdown of goods purchased, pricing, and vendor information, which are characteristic features of an invoice. It is bookable and ready for extraction.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.08,
+        "tokens": {
+          "prompt_tokens": 3381,
+          "completion_tokens": 146,
+          "total_tokens": 3527,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "HLD-10.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "10134",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-05-07",
+          "currency": "EUR",
+          "supplier_name": "Northwind Operations OÜ",
+          "buyer_name": "Speedwell",
+          "printed_gross": 254.52,
+          "erp_gross": 254.52,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit prices available for line items.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.89,
+            "tokens": {
+              "prompt_tokens": 75209,
+              "completion_tokens": 387,
+              "total_tokens": 75596,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document contains a clear invoice layout with line items detailing goods/services purchased, including quantities and prices. The presence of an invoice number and billing details confirms it as a commercial invoice, making it bookable for accounts payable processing.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.36,
+        "tokens": {
+          "prompt_tokens": 6214,
+          "completion_tokens": 148,
+          "total_tokens": 6362,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-01.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "852566",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-02-02",
+          "currency": "EUR",
+          "supplier_name": "Northwind Operations OÜ",
+          "buyer_name": "Herr Alex Kask",
+          "printed_gross": 438.0,
+          "erp_gross": 438.0,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 2,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 6.69,
+            "tokens": {
+              "prompt_tokens": 38371,
+              "completion_tokens": 429,
+              "total_tokens": 38800,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice labeled 'Rechnung' with a clear invoice number and detailed line items for services rendered, indicating it is a payable document. It meets the criteria for classification as an INVOICE.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 4.31,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 143,
+          "total_tokens": 3522,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-02.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "#9972-907",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-03-18",
+          "currency": "EUR",
+          "supplier_name": "Northwind Technology OÜ",
+          "buyer_name": "Meridian Logistics OÜ",
+          "printed_gross": 608.23,
+          "erp_gross": 608.23,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 14,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities noted. [Header freight cleared: already present in line items] [Package parent header deduplicated against component lines]",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 16.94,
+            "tokens": {
+              "prompt_tokens": 38370,
+              "completion_tokens": 1671,
+              "total_tokens": 40041,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a detailed list of goods and services purchased, along with a total amount due. The first page includes an invoice number and vendor information, indicating it is a commercial invoice. The second page provides payment instructions, which supports the classification as a payable document. There are no indications of it being a credit memo, customs document, or any other non-payable type.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.83,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 183,
+          "total_tokens": 6395,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "INV-03.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "INV-75162461",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-05-25",
+          "currency": "ZAR",
+          "supplier_name": "Cloverdale Print Ltd",
+          "buyer_name": "Northwind Services ZA (Pty) Ltd",
+          "printed_gross": 8550.0,
+          "erp_gross": 8550.0,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 6.48,
+            "tokens": {
+              "prompt_tokens": 75208,
+              "completion_tokens": 424,
+              "total_tokens": 75632,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a clear invoice layout with an invoice number, date, total amount due, and details of services provided. The second page serves as a payment advice related to the same invoice, thus both pages are part of the same payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.58,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 159,
+          "total_tokens": 6371,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-04.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "INV7097292303",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-04-30",
+          "currency": "ZAR",
+          "supplier_name": "Northwind Services ZA (Pty) Meridian Print Ltd",
+          "buyer_name": "Larkspur Distribution Meridian Print",
+          "printed_gross": 6620.55,
+          "erp_gross": 19730.55,
+          "delta": -13110.0,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.77,
+            "tokens": {
+              "prompt_tokens": 38371,
+              "completion_tokens": 461,
+              "total_tokens": 38832,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 1,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice detailing services rendered, including an invoice number, date, and total amount due, which qualifies it as a bookable payable. There are no indications of it being a credit memo, customs document, or any non-payable attachment.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 5.16,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 152,
+          "total_tokens": 3531,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-06.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "758847574",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-04-07",
+          "currency": "ZAR",
+          "supplier_name": "Northwind Services ZA (Pty) Ltd",
+          "buyer_name": "Maria Reis",
+          "printed_gross": 1683.98,
+          "erp_gross": 1853.81,
+          "delta": -169.83,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 25,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit discount or extra charges found. Unit prices are included in the total but not explicitly printed in their own column.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 25.5,
+            "tokens": {
+              "prompt_tokens": 75208,
+              "completion_tokens": 2450,
+              "total_tokens": 77658,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a tax invoice, as indicated by the title on the first page and the presence of a detailed summary of goods ordered, including itemized costs and a total amount due. Both pages are part of the same invoice, as they share the same order number and vendor information, thus they are processed as a single payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.5,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 169,
+          "total_tokens": 6381,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-07.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "INV7097292303",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-04-30",
+          "currency": "ZAR",
+          "supplier_name": "Northwind Services ZA (Pty) Meridian Print Ltd",
+          "buyer_name": "Larkspur Distribution Meridian Print",
+          "printed_gross": 6620.55,
+          "erp_gross": 19730.55,
+          "delta": -13110.0,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.6,
+            "tokens": {
+              "prompt_tokens": 38372,
+              "completion_tokens": 460,
+              "total_tokens": 38832,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 1,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice detailing goods/services purchased, including an invoice number, date, seller information, and total amount due, which confirms it as a bookable payable.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.38,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 136,
+          "total_tokens": 3515,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-09.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "11768395",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-06-06",
+          "currency": "EUR",
+          "supplier_name": "ARVE",
+          "buyer_name": "Cloverdale Trading",
+          "printed_gross": 37767.32,
+          "erp_gross": 31889.09,
+          "delta": 5878.23,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No line items were present in the document. The invoice type is INVOICE.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.84,
+            "tokens": {
+              "prompt_tokens": 38371,
+              "completion_tokens": 289,
+              "total_tokens": 38660,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The first page contains a commercial invoice with a clear invoice number, vendor details, and itemized charges, indicating it is a payable document. The second page appears to be a supporting document related to the first invoice, not a separate payable, thus it is included in the same segment.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.4,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 157,
+          "total_tokens": 6369,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-10.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "18533",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-03-25",
+          "currency": "EUR",
+          "supplier_name": "Larkspur Print OÜ",
+          "buyer_name": "Northwind Operations OÜ",
+          "printed_gross": 594.3,
+          "erp_gross": 594.3,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit price printed in its own column. The invoice type is INVOICE.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.96,
+            "tokens": {
+              "prompt_tokens": 38369,
+              "completion_tokens": 426,
+              "total_tokens": 38795,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a vendor commercial invoice, as it includes a clear invoice number, vendor details, itemized charges, and a total amount due. These features confirm it is a bookable payable ready for extraction.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 4.06,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 140,
+          "total_tokens": 3519,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 3,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-11.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "18109293",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-04-07",
+          "currency": "EUR",
+          "supplier_name": "Northwind Operations OÜ S?o Jo?o da Talh",
+          "buyer_name": "Northwind Operations OÜ Dos Hermanas",
+          "printed_gross": 83.21,
+          "erp_gross": 83.21,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 4,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 8.58,
+            "tokens": {
+              "prompt_tokens": 38376,
+              "completion_tokens": 675,
+              "total_tokens": 39051,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a clear invoice number, vendor details, and itemized charges for goods/services purchased. The layout includes standard invoice elements such as billing information, item descriptions, quantities, and total amounts, indicating it is a bookable payable ready for extraction.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.3,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 164,
+          "total_tokens": 3543,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "INV-13.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "1410",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-04-30",
+          "currency": "EUR",
+          "supplier_name": "Northwind Services EE OÜ",
+          "buyer_name": "Northwind Services EE OÜ",
+          "printed_gross": 152587.46,
+          "erp_gross": 129286.14,
+          "delta": 23301.32,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 22,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the rules. No ambiguities or missing fields. [Extra charge derived from subtotal difference: 9.95]",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 21.53,
+            "tokens": {
+              "prompt_tokens": 27037,
+              "completion_tokens": 2282,
+              "total_tokens": 29319,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice as it includes a detailed list of services provided, itemized charges, and a clear invoice number. It meets the criteria for a payable document, indicating it is ready for processing in the accounts payable system.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.73,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 147,
+          "total_tokens": 3526,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-14.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "INV-1587",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-05-01",
+          "currency": "GBP",
+          "supplier_name": "Northwind Services UK Ltd",
+          "buyer_name": "Silverbrook Media Limited",
+          "printed_gross": 29253.72,
+          "erp_gross": 29253.72,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 3,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as printed. No ambiguities or missing fields. [Header summary tax deduplicated against itemized line taxes]",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 9.53,
+            "tokens": {
+              "prompt_tokens": 27042,
+              "completion_tokens": 695,
+              "total_tokens": 27737,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a clear invoice number, details of services provided, a total amount due, and is issued by a vendor. The layout includes standard invoice elements such as the seller's information, invoice date, and a breakdown of charges, confirming its status as a bookable payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.97,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 170,
+          "total_tokens": 3549,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-15.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "INV-8935",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-04-01",
+          "currency": "GBP",
+          "supplier_name": "Northwind Services UK Ltd",
+          "buyer_name": "Silverbrook Media Limited",
+          "printed_gross": 29253.72,
+          "erp_gross": 29253.72,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 3,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 7.97,
+            "tokens": {
+              "prompt_tokens": 27041,
+              "completion_tokens": 612,
+              "total_tokens": 27653,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a tax invoice that includes an invoice number, a detailed list of services with quantities and amounts, and a total payable amount. This aligns with the characteristics of a commercial invoice, making it a bookable payable ready for extraction.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.58,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 152,
+          "total_tokens": 3531,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-16.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "TLLI772836045",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-06-09",
+          "currency": "EUR",
+          "supplier_name": "Northwind Operations OÜ",
+          "buyer_name": "MNH, MANNHEIM",
+          "printed_gross": 26.47,
+          "erp_gross": 29.3,
+          "delta": -2.83,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 2,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit prices printed. Quantity assumed to be 1 for line items.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 6.81,
+            "tokens": {
+              "prompt_tokens": 75210,
+              "completion_tokens": 495,
+              "total_tokens": 75705,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document contains a clear invoice layout with itemized charges, including quantities and prices, indicating it is a vendor commercial invoice for goods/services purchased. Both pages are related to the same invoice, as they share the same invoice number and seller information, thus they are grouped together as one payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.57,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 163,
+          "total_tokens": 6375,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-19.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": null,
+          "invoice_type": "INVOICE",
+          "invoice_date": null,
+          "currency": "GHC",
+          "supplier_name": "Redwater Technologies",
+          "buyer_name": "Northwind HOLDINGS OÜ",
+          "printed_gross": 8045.4,
+          "erp_gross": 1445.4,
+          "delta": 6600.0,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 5,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit invoice number or PO number found. The invoice date and due date are not provided. The unit price for line items is not explicitly printed.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 8.05,
+            "tokens": {
+              "prompt_tokens": 27037,
+              "completion_tokens": 755,
+              "total_tokens": 27792,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice containing vendor details, itemized charges, and totals, indicating it is a payable document. The second page includes a signature but does not introduce a new invoice number or billing party, confirming it as part of the same invoice.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.85,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 151,
+          "total_tokens": 6363,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-20.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "20423591",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-02-16",
+          "currency": "CHF",
+          "supplier_name": "Northwind CH sarl",
+          "buyer_name": "Nina Costa",
+          "printed_gross": 12.1,
+          "erp_gross": 12.1,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as printed. No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.41,
+            "tokens": {
+              "prompt_tokens": 38368,
+              "completion_tokens": 420,
+              "total_tokens": 38788,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The first page contains a clear invoice format with an invoice number, billing details, and a description of goods/services purchased, which qualifies it as an INVOICE. The second page appears to be a payment instruction related to the invoice, supporting the first page rather than being a separate payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.02,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 155,
+          "total_tokens": 6367,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-21.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "9884313366",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-04-06",
+          "currency": "EUR",
+          "supplier_name": "Oakhaven Partners LDA",
+          "buyer_name": "Northwind SUPPORT SERVICES PT, UNIPESSOAL LDA",
+          "printed_gross": 868.51,
+          "erp_gross": 0.0,
+          "delta": 868.51,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 5,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit prices printed in the document. The total amounts for line items are extracted as printed.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 9.05,
+            "tokens": {
+              "prompt_tokens": 38370,
+              "completion_tokens": 770,
+              "total_tokens": 39140,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice detailing services provided, including invoice number, vendor information, and itemized charges, which qualifies it as a bookable payable. There are no indications of it being a credit memo, customs document, or any other non-payable type.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.54,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 152,
+          "total_tokens": 3531,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-23.pdf",
+      "decision": "DECLINE",
+      "document_type": "NON_PAYABLE",
+      "document_count": 0,
+      "decline_reason": "The document is an estimate and not a payable invoice.",
+      "payables": [],
+      "declined": [
+        {
+          "doc_type": "NON_PAYABLE",
+          "reason": "The document is an estimate and not a payable invoice."
+        }
+      ],
+      "classification_rationale": "The first page clearly states 'ESTIMATE' and includes an estimate number, indicating that it is not a commercial invoice for goods or services purchased. The subsequent pages contain additional details related to the estimate, but none indicate a payable invoice. Therefore, the document is classified as non-payable and the decision is to decline.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.98,
+        "tokens": {
+          "prompt_tokens": 17544,
+          "completion_tokens": 133,
+          "total_tokens": 17677,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-25.pdf",
+      "decision": "SPLIT",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "PT456472637",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-04-13",
+          "currency": "EUR",
+          "supplier_name": "Fairmont Services LDA",
+          "buyer_name": "Support Services PT Unipessoal, Lda",
+          "printed_gross": 176.0,
+          "erp_gross": 32.91,
+          "delta": 143.09,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "AMBIGUOUS_UNIT_PRICE",
+          "line_items_count": 2,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as visible. No ambiguities noted.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 6.4,
+            "tokens": {
+              "prompt_tokens": 75213,
+              "completion_tokens": 517,
+              "total_tokens": 75730,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a vendor commercial invoice for goods/services purchased, with clear details such as invoice number, vendor information, and total amount due. Both pages present the same invoice information, indicating they are part of the same payable, thus they are grouped together in one segment.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.53,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 171,
+          "total_tokens": 6383,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-26.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": null,
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-02-08",
+          "currency": "MYR",
+          "supplier_name": "Mastura Print Sdn Bhd",
+          "buyer_name": "Customer No.",
+          "printed_gross": 873.53,
+          "erp_gross": 873.53,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 10,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit prices were printed in the line items. The total amounts were extracted as printed. [Extra charge derived from subtotal difference: 684.58]",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 13.32,
+            "tokens": {
+              "prompt_tokens": 75210,
+              "completion_tokens": 1108,
+              "total_tokens": 76318,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document contains a detailed breakdown of goods/services purchased, including quantities, descriptions, and total amounts, which aligns with the characteristics of a commercial invoice. Both pages are part of the same invoice, as they share the same invoice number and billing party, thus forming a single payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.56,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 161,
+          "total_tokens": 6373,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-27.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "32917ALS55",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2025-06-03",
+          "currency": "KES",
+          "supplier_name": "Oakhaven Supply Ltd",
+          "buyer_name": "Northwind Support Kenya Ltd KES",
+          "printed_gross": 70654.3,
+          "erp_gross": 70654.3,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 7,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 11.77,
+            "tokens": {
+              "prompt_tokens": 52543,
+              "completion_tokens": 1062,
+              "total_tokens": 53605,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a detailed breakdown of services rendered, including line items for charges, a subtotal, tax, and a total due amount. The presence of a clear invoice number and billing details supports its classification as a payable document ready for processing.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.14,
+        "tokens": {
+          "prompt_tokens": 6212,
+          "completion_tokens": 161,
+          "total_tokens": 6373,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    },
+    {
+      "filename": "INV-28.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "3025139",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2026-02-28",
+          "currency": "DKK",
+          "supplier_name": "Silverbrook Print",
+          "buyer_name": "Northwind Services Dk Aps",
+          "printed_gross": 4478.2,
+          "erp_gross": 4478.2,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 10,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "No explicit unit prices found in the line items. The total tax amount is derived from the footer summary. [Extra charge derived from subtotal difference: 1274.61]",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 11.58,
+            "tokens": {
+              "prompt_tokens": 112048,
+              "completion_tokens": 1179,
+              "total_tokens": 113227,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a detailed breakdown of goods and services purchased, including quantities, prices, and total amounts due. The presence of an invoice number and billing details confirms its status as a commercial invoice, making it a bookable payable ready for processing.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 3.05,
+        "tokens": {
+          "prompt_tokens": 9045,
+          "completion_tokens": 164,
+          "total_tokens": 9209,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-31.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "39015",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2018-06-01",
+          "currency": "USD",
+          "supplier_name": "AmeriHealth Caritas",
+          "buyer_name": "100 AIRPORT KPG III LLC",
+          "printed_gross": 17657.53,
+          "erp_gross": 19322.68,
+          "delta": -1665.15,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the rules. No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 6.62,
+            "tokens": {
+              "prompt_tokens": 78916,
+              "completion_tokens": 453,
+              "total_tokens": 79369,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 1,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains clear invoice details such as the vendor name (AmeriHealth Caritas), invoice number, amount due, and payment instructions. The pages include relevant billing information and are all related to the same invoice, thus they are grouped together as one payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 5.27,
+        "tokens": {
+          "prompt_tokens": 9672,
+          "completion_tokens": 177,
+          "total_tokens": 9849,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-32.pdf",
+      "decision": "MANUAL_REVIEW",
+      "document_type": "UNSURE",
+      "document_count": 0,
+      "decline_reason": "OpenAI API error 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-Er1OkFKwgtOPGP7pWEhRTYSZ on tokens per min (TPM): Limit 200000, Used 200000, Requested 1508. Please try again in 452ms. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"tokens\",\n        \"param\": null,\n        \"code\": \"rate_limit_exceeded\"\n    }\n}\n",
+      "payables": [],
+      "declined": [],
+      "classification_rationale": "LLM execution error: OpenAI API error 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-Er1OkFKwgtOPGP7pWEhRTYSZ on tokens per min (TPM): Limit 200000, Used 200000, Requested 1508. Please try again in 452ms. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"tokens\",\n        \"param\": null,\n        \"code\": \"rate_limit_exceeded\"\n    }\n}\n",
+      "classification_usage": {
+        "provider": "none",
+        "error": "OpenAI API error 429: {\n    \"error\": {\n        \"message\": \"Rate limit reached for gpt-4o-mini in organization org-Er1OkFKwgtOPGP7pWEhRTYSZ on tokens per min (TPM): Limit 200000, Used 200000, Requested 1508. Please try again in 452ms. Visit https://platform.openai.com/account/rate-limits to learn more.\",\n        \"type\": \"tokens\",\n        \"param\": null,\n        \"code\": \"rate_limit_exceeded\"\n    }\n}\n"
+      },
+      "provider": "none",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-33.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "ADIP/INV/070/17",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2017-06-08",
+          "currency": "SGD",
+          "supplier_name": "Changi Airport Group (S) Pte Ltd",
+          "buyer_name": "AD NOTIONS INT'L PTE. LTD.",
+          "printed_gross": 250.0,
+          "erp_gross": 250.0,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as visible. No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.84,
+            "tokens": {
+              "prompt_tokens": 38372,
+              "completion_tokens": 386,
+              "total_tokens": 38758,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 1,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice issued by Changi Airport Group, detailing the services provided, including an invoice number, billing party, and total amount due. It meets the criteria for an invoice as it is a vendor document for goods/services purchased, making it bookable for accounts payable processing.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.9,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 159,
+          "total_tokens": 3538,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 2,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-34.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "I220-127612",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2015-06-20",
+          "currency": "AUD",
+          "supplier_name": "Asian Pacific Serviced Offices Pty Ltd",
+          "buyer_name": "Zycus Infotech Private Limited",
+          "printed_gross": 572.0,
+          "erp_gross": 572.0,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.79,
+            "tokens": {
+              "prompt_tokens": 112383,
+              "completion_tokens": 427,
+              "total_tokens": 112810,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains clear billing information, including a total amount due, itemized charges for licence fees, and relevant details such as the issue date and customer number. All pages are related to the same invoice, with consistent references to the same charges, thus forming a single bookable payable document.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.74,
+        "tokens": {
+          "prompt_tokens": 9330,
+          "completion_tokens": 173,
+          "total_tokens": 9503,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 1,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-35.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "0248727220",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2018-06-27",
+          "currency": "USD",
+          "supplier_name": "Ciox Health",
+          "buyer_name": "QUALITY MANAGEMENT DEPT\nAMERIHEALTH CARTIAS LA",
+          "printed_gross": 30.25,
+          "erp_gross": 121.0,
+          "delta": -90.75,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 8,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 9.57,
+            "tokens": {
+              "prompt_tokens": 27034,
+              "completion_tokens": 897,
+              "total_tokens": 27931,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 3,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is a commercial invoice from Ciox Health, detailing services provided, including an invoice number and payment instructions. It meets the criteria for an invoice as it outlines goods/services purchased and includes necessary billing information.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.58,
+        "tokens": {
+          "prompt_tokens": 3379,
+          "completion_tokens": 140,
+          "total_tokens": 3519,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 1,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-36.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "44273107",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2018-06-18",
+          "currency": "USD",
+          "supplier_name": "Oracle America, Inc.",
+          "buyer_name": "AmeriHealth Caritas Services",
+          "printed_gross": 91580.5,
+          "erp_gross": 91580.5,
+          "delta": 0.0,
+          "is_match": true,
+          "is_near_match": false,
+          "failure_reason": "",
+          "line_items_count": 1,
+          "has_derived_unit_price": true,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "",
+            "po_id": ""
+          },
+          "extraction_notes": "All fields extracted as per the visible text. No ambiguities or missing fields.",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": false,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 5.91,
+            "tokens": {
+              "prompt_tokens": 27304,
+              "completion_tokens": 403,
+              "total_tokens": 27707,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 3,
+            "cache_hit": false
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a clear invoice number, invoice date, billing and shipping addresses, payment terms, and a total amount due. These features confirm it is a vendor commercial invoice for goods/services purchased, making it a bookable payable ready for extraction.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 5.95,
+        "tokens": {
+          "prompt_tokens": 3590,
+          "completion_tokens": 167,
+          "total_tokens": 3757,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 1,
+        "cache_hit": false
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": false
+    },
+    {
+      "filename": "INV-37.pdf",
+      "decision": "PROCESS",
+      "document_type": "INVOICE",
+      "document_count": 1,
+      "decline_reason": "",
+      "payables": [
+        {
+          "segment_id": 1,
+          "invoice_number": "5568",
+          "invoice_type": "INVOICE",
+          "invoice_date": "2018-06-12",
+          "currency": "USD",
+          "supplier_name": "1120 VERMONT AVENUE ASSOCIATES, LLP",
+          "buyer_name": "AmeriHealth",
+          "printed_gross": 2487.73,
+          "erp_gross": 2047.67,
+          "delta": 440.06,
+          "is_match": false,
+          "is_near_match": false,
+          "failure_reason": "TAX_CHARGE_OR_CALCULATION_MISMATCH",
+          "line_items_count": 3,
+          "has_derived_unit_price": false,
+          "resolved_master": {
+            "supplier_id": "",
+            "company_code": "",
+            "business_unit_code": "",
+            "location_code": "",
+            "payment_term_id": "Net_30",
+            "po_id": ""
+          },
+          "extraction_notes": "No ambiguities or missing fields detected. [Extra charge derived from subtotal difference: 371.70]",
+          "provider": "openai",
+          "model": "gpt-4o-mini",
+          "cache_hit": true,
+          "llm_usage": {
+            "provider": "openai",
+            "model": "gpt-4o-mini",
+            "detail": "high",
+            "fallback_used": true,
+            "duration_s": 8.23,
+            "tokens": {
+              "prompt_tokens": 27381,
+              "completion_tokens": 580,
+              "total_tokens": 27961,
+              "prompt_tokens_details": {
+                "cached_tokens": 0,
+                "audio_tokens": 0
+              },
+              "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "accepted_prediction_tokens": 0,
+                "rejected_prediction_tokens": 0
+              }
+            },
+            "retries": 0,
+            "cache_hit": true
+          }
+        }
+      ],
+      "declined": [],
+      "classification_rationale": "The document is classified as an INVOICE because it contains a clear invoice number (5568), invoice date (6/12/2018), and detailed billing information for utility services provided. The layout includes specific charges for electric usage, which aligns with the characteristics of a vendor commercial invoice for goods/services purchased.",
+      "classification_usage": {
+        "provider": "openai",
+        "model": "gpt-4o-mini",
+        "detail": "low",
+        "fallback_used": true,
+        "duration_s": 2.63,
+        "tokens": {
+          "prompt_tokens": 3613,
+          "completion_tokens": 163,
+          "total_tokens": 3776,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "retries": 0,
+        "cache_hit": true
+      },
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "cache_hit": true
+    }
+  ]
+}

@@ -287,6 +287,10 @@ def normalise_quantity_field(raw_q: Any) -> Tuple[Optional[Decimal], str]:
     if frac_match:
         delivered = Decimal(frac_match.group(1))
         return delivered, str(delivered)
+    comma_zeros = re.match(r"^(\d+),0+$", s)
+    if comma_zeros:
+        val = Decimal(comma_zeros.group(1))
+        return val, str(val)
     dec_q, norm_q, _ = normalise_financial_amount(s)
     if dec_q is not None:
         return dec_q, norm_q
@@ -411,7 +415,13 @@ def _apply_normalisation(d: Dict[str, Any]) -> None:
         # Unit Price & Derived handling (Step 5 Requirement 6)
         u_val = li.get("unit_price_raw")
         tot_for_derive = li.get("total_norm") or tot_val
-        derived_price, is_derived = derive_unit_price(li.get("quantity_norm") or q_val, u_val, tot_for_derive)
+        derived_price, is_derived = derive_unit_price(
+            li.get("quantity_norm") or q_val,
+            u_val,
+            tot_for_derive,
+            discount_raw=li.get("discount_raw"),
+            discount_percentage_raw=li.get("discount_percentage_raw")
+        )
         
         if derived_price:
             dec_p, norm_p, is_amb_p = normalise_financial_amount(derived_price)
@@ -461,6 +471,48 @@ def _apply_normalisation(d: Dict[str, Any]) -> None:
             "total_norm": net_amt,
             "taxes": []
         }]
+
+    # ── Promote total_tax to header_taxes if no taxes were extracted at all ──
+    if not d.get("header_taxes") and d.get("total_tax_norm"):
+        line_has_tax = any(
+            any(lt.get("tax_amount_norm") or lt.get("tax_rate_norm") for lt in (li.get("taxes") or []))
+            for li in (d.get("line_items") or [])
+        )
+        if not line_has_tax:
+            try:
+                tt_val = Decimal(d["total_tax_norm"])
+                if tt_val > Decimal("0.0"):
+                    sub_val = Decimal(d["subtotal_norm"]) if d.get("subtotal_norm") else Decimal("0.0")
+                    gross_val = Decimal(d["gross_total_norm"]) if d.get("gross_total_norm") else Decimal("0.0")
+                    other_charges = Decimal("0.0")
+                    for k in ("freight_charges_norm", "insurance_charges_norm", "extra_charges_norm", "excise_duties_norm"):
+                        if d.get(k):
+                            other_charges += Decimal(d[k])
+                    is_inclusive = gross_val > Decimal("0.0") and abs(gross_val - (sub_val + other_charges)) <= Decimal("0.05")
+                    if not is_inclusive:
+                        d["header_taxes"] = [{
+                            "tax_name": "TAX",
+                            "tax_rate_raw": "",
+                            "tax_amount_raw": d.get("total_tax_raw"),
+                            "tax_rate_norm": "",
+                            "tax_amount_norm": d["total_tax_norm"],
+                            "_placement": "HEADER"
+                        }]
+            except Exception:
+                pass
+
+    # ── Document Evidence Discount Duplication Deduplication ──
+    if d.get("discount_amount_norm"):
+        try:
+            hdr_disc = Decimal(d["discount_amount_norm"])
+            line_disc_sum = sum(
+                Decimal(li["discount_norm"]) for li in (d.get("line_items") or []) if li.get("discount_norm")
+            )
+            if hdr_disc > Decimal("0.0") and line_disc_sum > Decimal("0.0") and abs(hdr_disc - line_disc_sum) <= Decimal("0.05"):
+                d["discount_amount_norm"] = None
+                d["_extraction_notes"] = (d.get("_extraction_notes") or "") + " [Header discount deduplicated against itemized line discounts]"
+        except Exception:
+            pass
 
     # ── Document Evidence Tax Duplication Deduplication (Fix 1) ──
     line_items_taxes = [lt for li in (d.get("line_items") or []) for lt in (li.get("taxes") or [])]
@@ -629,6 +681,50 @@ def _apply_normalisation(d: Dict[str, Any]) -> None:
     if bundle_indices_to_remove:
         d["line_items"] = [li for idx, li in enumerate(lines) if idx not in bundle_indices_to_remove]
         d["_extraction_notes"] = (d.get("_extraction_notes") or "") + " [Package parent header deduplicated against component lines]"
+
+    # ── Backup-Page Embedded Tax Guard (General Rule — e.g. utility pass-through invoices) ──
+    # When line item totals already sum to the gross total AND all header taxes are
+    # rate-less pure amount entries (from attached backup sheets, not primary billing taxes),
+    # those header taxes are sub-breakdown items already embedded in the line totals.
+    # Clearing them prevents double-counting the same amount.
+    # Condition: line_sum == gross_total AND every header tax has no rate field printed.
+    # This does NOT apply when header taxes have rates (those are legitimate separate taxes).
+    header_taxes_now = d.get("header_taxes") or []
+    gross_norm_val = d.get("gross_total_norm")
+    lines_now = d.get("line_items") or []
+    if header_taxes_now and gross_norm_val and lines_now:
+        try:
+            gross_dec = Decimal(gross_norm_val)
+            line_tots = [li.get("total_norm") for li in lines_now if li.get("total_norm")]
+            if len(line_tots) == len(lines_now) and line_tots:
+                line_sum = sum(Decimal(t) for t in line_tots)
+                if abs(line_sum - gross_dec) < Decimal("0.01"):
+                    # All line totals already sum to gross — check if header taxes are rate-less
+                    all_rateless = all(
+                        not str(ht.get("tax_rate_raw") or "").strip() and
+                        not str(ht.get("tax_rate_norm") or "").strip()
+                        for ht in header_taxes_now
+                        if not (  # Preserve legitimate withholding deductions
+                            "withhold" in (ht.get("tax_name") or "").lower() or
+                            str(ht.get("tax_amount_raw") or "").strip().startswith("-")
+                        )
+                    )
+                    if all_rateless:
+                        # Keep only withholding taxes; drop backup-page breakdown amounts
+                        wht_only = [
+                            ht for ht in header_taxes_now
+                            if "withhold" in (ht.get("tax_name") or "").lower() or
+                               str(ht.get("tax_amount_raw") or "").strip().startswith("-")
+                        ]
+                        if len(wht_only) < len(header_taxes_now):
+                            d["header_taxes"] = wht_only
+                            d["_tax_backup_embedded"] = True
+                            d["_extraction_notes"] = (d.get("_extraction_notes") or "") + (
+                                " [Header taxes cleared: line totals already sum to gross (backup-page "
+                                "tax breakdown already embedded in line extension amounts)]"
+                            )
+        except Exception:
+            pass
 
 
 # ──────────────────────────────────────────────────────────────────────────────
