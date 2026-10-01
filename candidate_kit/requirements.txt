@@ -1,7 +1,6 @@
-# requirements.txt
-# Add one package per line when needed.
-# Standard library only at this stage (erp.py uses no third-party packages).
-# Expected additions:
-#   google-generativeai   (or openai)  -- LLM/vision extraction
-#   pymupdf               -- PDF rendering and text extraction
-#   rapidfuzz             -- fuzzy name matching for supplier resolution
+pymupdf>=1.23.0
+Pillow>=10.0.0
+python-dotenv>=1.0.0
+google-genai>=0.1.0
+httpx>=0.27.0
+pytest>=7.0.0

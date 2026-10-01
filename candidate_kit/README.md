@@ -133,3 +133,166 @@ The obvious approach — read the fields, fill the record — will book perhaps 
 Past that stall there is a shift in how you picture *what one of these documents actually is* — after which the failures stop being a dozen unrelated bugs and become one thing wearing a dozen masks.
 
 We are not going to tell you what that shift is. Arriving at it, unaided, is the exam.
+
+---
+
+## Quickstart & Execution Guide
+
+### 1. Environment Setup
+
+Python 3.10+ is required.
+
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate virtual environment
+# On Linux / macOS:
+source .venv/bin/activate
+# On Windows PowerShell:
+.venv\Scripts\Activate.ps1
+
+# Install required dependencies
+pip install -r requirements.txt
+```
+
+### 2. Environment Variables & API Keys
+
+Copy `.env.example` to `.env` and set your API keys:
+
+```bash
+cp .env.example .env
+```
+
+Contents of `.env`:
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+*Note: The pipeline uses Google Gemini (`gemini-2.5-flash`) as the primary extraction model with automatic fallback to OpenAI (`gpt-4o`) for resilience.*
+
+### 3. Normal Local Execution Command
+
+Run the end-to-end pipeline across all documents:
+
+```bash
+python run.py --docs documents/ --out output/
+```
+
+Defaults:
+- `--docs documents/`: Input directory containing PDF documents (or a path to a single `.pdf`).
+- `--out output/`: Directory where resulting `<pdf_stem>.json` files will be written.
+- `--master-data master_data/`: Path to master data JSON tables.
+
+### 4. Docker Execution Command
+
+Build the Docker container:
+
+```bash
+docker build -t bookable-payable .
+```
+
+Run the container with mounted volumes:
+
+```bash
+# On Linux / macOS:
+docker run --rm \
+  -e GEMINI_API_KEY="${GEMINI_API_KEY}" \
+  -e OPENAI_API_KEY="${OPENAI_API_KEY}" \
+  -v "$(pwd)/documents:/app/documents:ro" \
+  -v "$(pwd)/output:/app/output" \
+  bookable-payable
+
+# On Windows PowerShell:
+docker run --rm `
+  -e GEMINI_API_KEY="$env:GEMINI_API_KEY" `
+  -e OPENAI_API_KEY="$env:OPENAI_API_KEY" `
+  -v "${PWD}/documents:/app/documents:ro" `
+  -v "${PWD}/output:/app/output" `
+  bookable-payable
+```
+
+### 5. Running Tests
+
+Run the full automated test suite:
+
+```bash
+python -m pytest tests/ -v
+```
+
+### 6. Expected Output Structure
+
+For each input file `X.pdf`, the system produces `output/X.json` strictly conforming to `AUTODRAFT_SCHEMA.md`:
+
+```jsonc
+{
+  "file": "X.pdf",
+  "payables": [
+    {
+      "invoice_number": "265345",
+      "invoice_date": "2026-02-02",
+      "due_date": "2026-02-12",
+      "invoice_type": "INVOICE",
+      "currency": "EUR",
+      "supplier": {
+        "name": "Phocus Direct Communication GmbH",
+        "supplier_id": "2845695",
+        "address": "Lina-Ammon-Strasse 19b, 90471 Nurnberg, DE",
+        "vat_id": "DE209177122"
+      },
+      "buyer": {
+        "company_code": "BOLTGROUP",
+        "business_unit_code": "EE004",
+        "location_code": "LOC_EE_001"
+      },
+      "payment_term_id": "Net_10",
+      "po_number": "",
+      "po_id": "",
+      "gross_total": "438.00",
+      "subtotal": "438.00",
+      "total_tax_amount": "0.00",
+      "discount_amount": "",
+      "freight_charges": "",
+      "insurance_charges": "",
+      "extra_charges": "",
+      "excise_duties": "",
+      "taxes": [
+        {
+          "tax_type": "VAT",
+          "tax_name": "VAT Reverse Charge",
+          "tax_rate": "0",
+          "tax_amount": "0.00",
+          "tax_type_code": "DE_000_RC"
+        }
+      ],
+      "line_items": [
+        {
+          "description": "Projektmanagement Nachberechnung aus November",
+          "item_type": "SERVICE",
+          "uom": "Hr",
+          "quantity": "4",
+          "unit_price": "73.00",
+          "total": "292.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        }
+      ]
+    }
+  ],
+  "declined": [
+    // Non-payable documents (e.g. statements, customs manifests) are routed here
+    // { "doc_type": "STATEMENT", "reason": "Monthly account summary statement without itemized charge ledger" }
+  ]
+}
+```
+
+### 7. Troubleshooting Basics
+
+- **API Rate Limits (429 / 503):** The pipeline has built-in exponential backoff retries and automatically switches from Gemini to OpenAI if rate limits persist.
+- **Cache Persistence:** Raw API responses are content-addressed and cached under `cache/llm/`. To rerun deterministically without making network calls, preserve the `cache/` directory.
+- **Unmatched Master Data:** Unmatched suppliers or POs legitimately emit empty strings `""` (Rule 2). The system never fabricates codes.
+
