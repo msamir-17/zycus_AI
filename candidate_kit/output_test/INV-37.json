@@ -1,0 +1,85 @@
+{
+  "file": "INV-37.pdf",
+  "payables": [
+    {
+      "invoice_number": "5568",
+      "invoice_date": "2018-06-12",
+      "due_date": "",
+      "invoice_type": "INVOICE",
+      "currency": "USD",
+      "supplier": {
+        "name": "1120 VERMONT AVENUE ASSOCIATES, LLP",
+        "supplier_id": "",
+        "address": "200 Stevens Drive, Philadelphia, PA 19113",
+        "vat_id": ""
+      },
+      "buyer": {
+        "company_code": "",
+        "business_unit_code": "",
+        "location_code": ""
+      },
+      "payment_term_id": "Net_30",
+      "po_number": "17816",
+      "po_id": "",
+      "gross_total": "2487.73",
+      "subtotal": "1942.07",
+      "total_tax_amount": "105.60",
+      "discount_amount": "",
+      "freight_charges": "",
+      "insurance_charges": "",
+      "extra_charges": "371.70",
+      "excise_duties": "",
+      "taxes": [
+        {
+          "tax_type": "VAT",
+          "tax_name": "Sales tax",
+          "tax_rate": "0.0575",
+          "tax_amount": "105.60",
+          "tax_type_code": ""
+        }
+      ],
+      "line_items": [
+        {
+          "description": "Electric Usage - Meter #0201",
+          "item_type": "SERVICE",
+          "uom": "KWH",
+          "quantity": "24",
+          "unit_price": "0.097958122",
+          "total": "2.35",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "Electric Usage - Meter #0202",
+          "item_type": "SERVICE",
+          "uom": "KWH",
+          "quantity": "191",
+          "unit_price": "0.097958122",
+          "total": "18.71",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "Electric Usage - Meter #0206",
+          "item_type": "SERVICE",
+          "uom": "KWH",
+          "quantity": "15816",
+          "unit_price": "0.097958122",
+          "total": "1549.31",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        }
+      ]
+    }
+  ],
+  "declined": []
+}

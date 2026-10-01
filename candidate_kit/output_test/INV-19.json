@@ -1,0 +1,111 @@
+{
+  "file": "INV-19.pdf",
+  "payables": [
+    {
+      "invoice_number": "",
+      "invoice_date": "",
+      "due_date": "",
+      "invoice_type": "INVOICE",
+      "currency": "GHC",
+      "supplier": {
+        "name": "Redwater Technologies",
+        "supplier_id": "",
+        "address": "Lindensrasse 111",
+        "vat_id": "C9756403675"
+      },
+      "buyer": {
+        "company_code": "",
+        "business_unit_code": "",
+        "location_code": ""
+      },
+      "payment_term_id": "",
+      "po_number": "",
+      "po_id": "",
+      "gross_total": "8045.40",
+      "subtotal": "6600.00",
+      "total_tax_amount": "1449.40",
+      "discount_amount": "",
+      "freight_charges": "",
+      "insurance_charges": "",
+      "extra_charges": "",
+      "excise_duties": "",
+      "taxes": [
+        {
+          "tax_type": "VAT",
+          "tax_name": "VAT",
+          "tax_rate": "15",
+          "tax_amount": "1049.40",
+          "tax_type_code": ""
+        }
+      ],
+      "line_items": [
+        {
+          "description": "Meal per head",
+          "item_type": "SERVICE",
+          "uom": "",
+          "quantity": "60",
+          "unit_price": "GH₵ 90.00",
+          "total": "5400.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "Transportation and Set up",
+          "item_type": "SERVICE",
+          "uom": "",
+          "quantity": "1",
+          "unit_price": "GH₵ 1,200.00",
+          "total": "1200.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "NHIL (2.5%)",
+          "item_type": "TAX",
+          "uom": "",
+          "quantity": "1",
+          "unit_price": "165",
+          "total": "165.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "GETFund Levy (2.5%)",
+          "item_type": "TAX",
+          "uom": "",
+          "quantity": "1",
+          "unit_price": "165",
+          "total": "165.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "COVID-19 Levy (1%)",
+          "item_type": "TAX",
+          "uom": "",
+          "quantity": "1",
+          "unit_price": "66",
+          "total": "66.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        }
+      ]
+    }
+  ],
+  "declined": []
+}

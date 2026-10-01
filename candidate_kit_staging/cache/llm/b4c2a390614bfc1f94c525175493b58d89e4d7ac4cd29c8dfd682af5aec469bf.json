@@ -1,0 +1,52 @@
+{
+  "data": {
+    "filename": "INV-09.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice for goods/services purchased from ARVE."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The first page contains a commercial invoice with a clear invoice number, vendor details, and itemized charges, indicating it is a payable document. The second page appears to be a supporting document related to the first invoice, not a separate payable, thus it is included in the same segment."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.4,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 157,
+      "total_tokens": 6369,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "05a23bb430aa2bbcee34dcbe642f5b97945f4491d13d1a77c3eb5fc667d4d5e5",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "6b2bc83e2e5a4a16111a3729992bb163aa58a957f8f31765609af299ce79f402"
+  }
+}

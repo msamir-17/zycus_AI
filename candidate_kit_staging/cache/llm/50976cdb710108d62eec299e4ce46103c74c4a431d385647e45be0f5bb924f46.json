@@ -1,0 +1,55 @@
+{
+  "data": {
+    "filename": "INV-34.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2,
+          3
+        ],
+        "description": "Invoice for licence fees detailing charges and total amount due."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains clear billing information, including a total amount due, itemized charges for licence fees, and relevant details such as the issue date and customer number. All pages are related to the same invoice, with consistent references to the same charges, thus forming a single bookable payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.74,
+    "tokens": {
+      "prompt_tokens": 9330,
+      "completion_tokens": 173,
+      "total_tokens": 9503,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 1,
+    "cache_hit": false,
+    "source_pdf_sha256": "d6a0a6da0e24e46a7319f92eb9d354252452c5f6427ff0724b10ea848d7ffe9c",
+    "page_range": [
+      1,
+      2,
+      3
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "065692e4674c699e709538516d0fa7e6afd3d064c1a7a49ec7b1fda6ec7edfef"
+  }
+}

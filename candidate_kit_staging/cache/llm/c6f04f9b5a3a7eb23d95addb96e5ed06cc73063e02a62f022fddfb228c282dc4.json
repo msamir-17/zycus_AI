@@ -1,0 +1,55 @@
+{
+  "data": {
+    "filename": "INV-28.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2,
+          3
+        ],
+        "description": "Invoice detailing goods and services purchased with itemized charges."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a detailed breakdown of goods and services purchased, including quantities, prices, and total amounts due. The presence of an invoice number and billing details confirms its status as a commercial invoice, making it a bookable payable ready for processing."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.05,
+    "tokens": {
+      "prompt_tokens": 9045,
+      "completion_tokens": 164,
+      "total_tokens": 9209,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "d4bd1553e55b90e1866651ae2a58403a6ec8514c70c302b06819095b2a99094b",
+    "page_range": [
+      1,
+      2,
+      3
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "26a05dde312dc00e0ad15e64c8dd552912448ae92886eeadc90644c5a6dcba61"
+  }
+}

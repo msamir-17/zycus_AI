@@ -1,0 +1,122 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "No explicit unit prices printed in the document. The total amounts for line items are extracted as printed.",
+    "invoice_number": "9884313366",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-04-06",
+    "due_date": "2026-05-06",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Oakhaven Partners LDA",
+      "address": "High Street 8, 2799-554 LINDA-A-VELHA",
+      "vat_id": "PT12964656"
+    },
+    "buyer": {
+      "name": "Northwind SUPPORT SERVICES PT, UNIPESSOAL LDA",
+      "address": "Avenida Central 224, 1250-148 Lisboa"
+    },
+    "payment_terms_raw": "Até dia 06/05/2026",
+    "po_number": null,
+    "gross_total_raw": "868,51",
+    "subtotal_raw": "432,91",
+    "total_tax_raw": "100,19",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [],
+    "line_items": [
+      {
+        "description": "SICAL SUPER BAR Calde Grao 61kg N1PT",
+        "item_type": "GOODS",
+        "uom": "UND",
+        "quantity_raw": "24,000",
+        "unit_price_raw": null,
+        "total_raw": "407,95",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Chocolate Quente 12[25x20g] N1",
+        "item_type": "GOODS",
+        "uom": "UND",
+        "quantity_raw": "1,000",
+        "unit_price_raw": null,
+        "total_raw": "10,01",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "NESCAFE Accuard 12x2,8kg PT",
+        "item_type": "GOODS",
+        "uom": "UND",
+        "quantity_raw": "1,000",
+        "unit_price_raw": null,
+        "total_raw": "8,30",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "AHMAD Inf MenthaHrlim 62[20x1,5g]NPT",
+        "item_type": "GOODS",
+        "uom": "UND",
+        "quantity_raw": "3,000",
+        "unit_price_raw": null,
+        "total_raw": "8,82",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "AHMAD Inf Camomila 62[20x1,5g]NPT",
+        "item_type": "GOODS",
+        "uom": "UND",
+        "quantity_raw": "3,000",
+        "unit_price_raw": null,
+        "total_raw": "8,82",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 9.05,
+    "tokens": {
+      "prompt_tokens": 38370,
+      "completion_tokens": 770,
+      "total_tokens": 39140,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "ed3dbdadf4f92873e903c0c73e5a841e3a801d150cb1daa67b1b4f7b6f7dfc1f",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "911e2d8b6e41e37f009f4800db3c8469dc9daeeec754b2813ba5c28374b01e32"
+  }
+}

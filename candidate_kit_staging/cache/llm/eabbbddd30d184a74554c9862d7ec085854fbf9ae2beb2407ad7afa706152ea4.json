@@ -1,0 +1,107 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "No ambiguities or missing fields detected.",
+    "invoice_number": "5568",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2018-06-12",
+    "due_date": null,
+    "currency": "USD",
+    "supplier": {
+      "name": "1120 VERMONT AVENUE ASSOCIATES, LLP",
+      "address": "200 Stevens Drive, Philadelphia, PA 19113",
+      "vat_id": null
+    },
+    "buyer": {
+      "name": "AmeriHealth",
+      "address": "200 Stevens Drive, Philadelphia, PA 19113"
+    },
+    "payment_terms_raw": "30 Days",
+    "po_number": "17816",
+    "gross_total_raw": "2,487.73",
+    "subtotal_raw": "1,942.07",
+    "total_tax_raw": "105.60",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "Sales tax",
+        "tax_rate_raw": "0.0575",
+        "tax_amount_raw": "105.60",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Electric Usage - Meter #0201",
+        "item_type": "SERVICE",
+        "uom": "KWH",
+        "quantity_raw": "24",
+        "unit_price_raw": "0.097958122",
+        "total_raw": "$2.35",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Electric Usage - Meter #0202",
+        "item_type": "SERVICE",
+        "uom": "KWH",
+        "quantity_raw": "191",
+        "unit_price_raw": "0.097958122",
+        "total_raw": "$18.71",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Electric Usage - Meter #0206",
+        "item_type": "SERVICE",
+        "uom": "KWH",
+        "quantity_raw": "15816",
+        "unit_price_raw": "0.097958122",
+        "total_raw": "$1,549.31",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 8.23,
+    "tokens": {
+      "prompt_tokens": 27381,
+      "completion_tokens": 580,
+      "total_tokens": 27961,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "1e329960c3b832fe807daf325d84ae8fe8c4c5970c7651e7317a97696d7a4755",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "184b5fab659eb45f085268f581fd672b4b01ff1959905b1cbde3b3399f3c6764"
+  }
+}

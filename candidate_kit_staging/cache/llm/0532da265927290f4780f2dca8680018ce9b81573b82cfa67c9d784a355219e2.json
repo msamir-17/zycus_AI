@@ -1,0 +1,89 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2,
+      3
+    ],
+    "_extraction_notes": "All fields extracted as per the visible data. No ambiguities or missing fields.",
+    "invoice_number": "I220-127612",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2015-06-20",
+    "due_date": "2015-06-27",
+    "currency": "AUD",
+    "supplier": {
+      "name": "Asian Pacific Serviced Offices Pty Ltd",
+      "address": "Level 3, 480 Collins Street, Melbourne VIC 3000",
+      "vat_id": "11 068 012 653"
+    },
+    "buyer": {
+      "name": "Zycus Infotech Private Limited",
+      "address": "Level 9, 440 Collins Street, Melbourne VIC 3000"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "572.00",
+    "subtotal_raw": "520.00",
+    "total_tax_raw": "52.00",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "GST",
+        "tax_rate_raw": null,
+        "tax_amount_raw": "52.00",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Licence Fees - Suite 313b",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1.00",
+        "unit_price_raw": "$520.00",
+        "total_raw": "$520.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 5.79,
+    "tokens": {
+      "prompt_tokens": 112383,
+      "completion_tokens": 427,
+      "total_tokens": 112810,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "d6a0a6da0e24e46a7319f92eb9d354252452c5f6427ff0724b10ea848d7ffe9c",
+    "page_range": [
+      1,
+      2,
+      3
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "1fa0cfe41a50366940df63f464fa01fe1ceb4497ba0035556f14aaa0c4b793d7"
+  }
+}

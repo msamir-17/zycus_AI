@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "HLD-08.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice for goods purchased, detailing items, prices, and vendor information."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice, as it includes a detailed breakdown of goods purchased, pricing, and vendor information, which are characteristic features of an invoice. It is bookable and ready for extraction."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.08,
+    "tokens": {
+      "prompt_tokens": 3381,
+      "completion_tokens": 146,
+      "total_tokens": 3527,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "5478cb5fbeb77f4a1c8cf4a629a4d12278abe9bf73a1ce25103c17fadd4e664c",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "6cb8321d194c812591138bd04fabaccd7b1a3182570fe6af86dc21a2620d9745"
+  }
+}

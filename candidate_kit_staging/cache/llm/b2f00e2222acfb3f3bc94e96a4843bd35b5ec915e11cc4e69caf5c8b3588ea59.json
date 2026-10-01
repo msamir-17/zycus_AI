@@ -1,0 +1,52 @@
+{
+  "data": {
+    "filename": "INV-02.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice detailing goods purchased with a total amount."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a detailed list of goods and services purchased, along with a total amount due. The first page includes an invoice number and vendor information, indicating it is a commercial invoice. The second page provides payment instructions, which supports the classification as a payable document. There are no indications of it being a credit memo, customs document, or any other non-payable type."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.83,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 183,
+      "total_tokens": 6395,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "7fb8377b0e356ee49973facc735be9622e9aed9b4f00f4ba0947c8797fe100cb",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "bc08a452ce12c1bd7a6a68c0a8d0a0d8e73edc2aa4e7c59a6a1f4fa98563962e"
+  }
+}

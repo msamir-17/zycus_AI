@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-14.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Tax invoice detailing services rendered with a clear invoice number and total amount due."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a clear invoice number, details of services provided, a total amount due, and is issued by a vendor. The layout includes standard invoice elements such as the seller's information, invoice date, and a breakdown of charges, confirming its status as a bookable payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.97,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 170,
+      "total_tokens": 3549,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "26a27d5237577caf24c3acc4ccbbd2216fc560776d7d2c2ed45d3a96d36b1a1f",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "d7359bbe395229c0e8d379fa2709d19e5a8980d95a71c9ef65a8d4d13eb1ff26"
+  }
+}

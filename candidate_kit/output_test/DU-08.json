@@ -1,0 +1,10 @@
+{
+  "file": "DU-08.pdf",
+  "payables": [],
+  "declined": [
+    {
+      "doc_type": "STATEMENT",
+      "reason": "The document is a reminder notice (Mahnung) and does not qualify as a payable invoice or credit memo."
+    }
+  ]
+}

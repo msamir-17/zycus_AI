@@ -1,0 +1,87 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "No explicit unit prices available for line items.",
+    "invoice_number": "10134",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-05-07",
+    "due_date": "2026-06-04",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Northwind Operations OÜ",
+      "address": null,
+      "vat_id": null
+    },
+    "buyer": {
+      "name": "Speedwell",
+      "address": "High Street 36\n75310 Harju maakond,\nEesti"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "254,52",
+    "subtotal_raw": "223,98",
+    "total_tax_raw": "30,54",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": "66,36",
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "KM",
+        "tax_rate_raw": "24,00%",
+        "tax_amount_raw": "30,54",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "UMARDAMINE",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "4,00",
+        "unit_price_raw": null,
+        "total_raw": "157,62",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 5.89,
+    "tokens": {
+      "prompt_tokens": 75209,
+      "completion_tokens": 387,
+      "total_tokens": 75596,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "275ee157afe42a05e5f111c698457216f9bcbf818f34700b956c6c2c07a60b95",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "c248aa2879552408bd79dd87212b9102927ed939fd2c9c4de774e8e11e6c8129"
+  }
+}

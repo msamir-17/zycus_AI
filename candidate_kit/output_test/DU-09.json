@@ -1,0 +1,10 @@
+{
+  "file": "DU-09.pdf",
+  "payables": [],
+  "declined": [
+    {
+      "doc_type": "NON_PAYABLE",
+      "reason": "The document is a sponsorship form and not a payable invoice or credit memo."
+    }
+  ]
+}

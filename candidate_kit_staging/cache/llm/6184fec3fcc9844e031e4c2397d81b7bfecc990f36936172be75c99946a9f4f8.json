@@ -1,0 +1,351 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "No explicit discount or extra charges found. Unit prices are included in the total but not explicitly printed in their own column.",
+    "invoice_number": "758847574",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2025-04-07",
+    "due_date": null,
+    "currency": "ZAR",
+    "supplier": {
+      "name": "Northwind Services ZA (Pty) Ltd",
+      "address": "Unit 7 Block B, M5 Office Park, Unit 7, Block B, Eastman, Maitland, Cape Town, 7405",
+      "vat_id": "N0944666349440"
+    },
+    "buyer": {
+      "name": "Maria Reis",
+      "address": "Stand alone building, 1A Bahnhofstrasse 185, Kadaka tee 20, Cape Town"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "1,683.98",
+    "subtotal_raw": "1,633.98",
+    "total_tax_raw": "169.83",
+    "discount_amount_raw": null,
+    "freight_charges_raw": "50.00",
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "VAT",
+        "tax_rate_raw": null,
+        "tax_amount_raw": "169.83",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "PnP Bananas Box 1.2kg",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "44.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Banana Loaf 300g",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "24.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Liqui-fruit Breakfast Punch Fruit Juice",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "25.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Liqui-fruit Berry Blaze Juice 1l",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "25.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Liqui-fruit Cranberry Cooler Juice 1l",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "25.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Liqui-fruit Orange Fruit Juice 1l",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "25.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Ripe & Ready Cling Peaches",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "56.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Red Grapes 500g",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "39.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP White Grapes 500g",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "39.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Nature Valley Crunchy Oats & Honey",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "69.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Kellogg's Cocoa & Nutmix Granola",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "72.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Kellogg's Cranberry & Linseed Granola",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "72.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pringles Salt & Vinegar Potato Chips",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "69.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pringles Sour Cream & Onion Potato Chips",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "69.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Sliced Beef Biltong 300g",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "113.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Roasted & Salted Economy Mixed Nuts",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "125.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Bakehouse Blueberry Muffins 4 Pack",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "39.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Full Cream Smooth Plain Yoghurt 1kg",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": null,
+        "total_raw": "77.98",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Granola 750g",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "57.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Berry Muesli Cereal 750g",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "74.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Kellogg's Corn Flakes 750g",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "74.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Clover UHT Full Cream Long Life",
+        "item_type": "GOODS",
+        "uom": "CS(6)",
+        "quantity_raw": "2",
+        "unit_price_raw": null,
+        "total_raw": "199.98",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Little Bee Honey Squeeze Bottle 1kg",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "159.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PnP Bakehouse Blueberry Muffins 4 Pack",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "39.99",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Online Shopping Bag",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "4",
+        "unit_price_raw": null,
+        "total_raw": "5.20",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 25.5,
+    "tokens": {
+      "prompt_tokens": 75208,
+      "completion_tokens": 2450,
+      "total_tokens": 77658,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "55c7fa6825b7fe6619db7bf1be3a964d64f07eea1b60b1eee9c57422582ef580",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "3ee6a13dbb7a78bf6715d26ca8df441768a3bae0e9ff10382447945f900e81c9"
+  }
+}

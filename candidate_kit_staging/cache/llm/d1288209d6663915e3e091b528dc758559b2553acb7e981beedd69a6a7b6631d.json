@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-04.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice for standard criminal verification services with detailed charges."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice detailing services rendered, including an invoice number, date, and total amount due, which qualifies it as a bookable payable. There are no indications of it being a credit memo, customs document, or any non-payable attachment."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 5.16,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 152,
+      "total_tokens": 3531,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "5e1a981e4c638077a58c91e1b18c49aa22327047974aca6fe58971b80fd8bd53",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "8a30a6e748414ead47625fdc2bd2c09405f4f34876a6e350417a598966147c4b"
+  }
+}

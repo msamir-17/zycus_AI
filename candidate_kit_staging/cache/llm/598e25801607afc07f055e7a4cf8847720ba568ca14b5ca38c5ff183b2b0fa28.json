@@ -1,0 +1,66 @@
+{
+  "data": {
+    "filename": "DU-03.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Invoice from Blueharbor Logistics & Services"
+      },
+      {
+        "segment_id": 2,
+        "type": "SUPPORTING_DOC",
+        "pages": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "description": "Shipment Cartage Advice, Cargo documents, and Air Waybills"
+      },
+      {
+        "segment_id": 3,
+        "type": "SUPPORTING_DOC",
+        "pages": [
+          12
+        ],
+        "description": "Invoice from Polvex Distribution"
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is identified as an invoice because it contains vendor information (Blueharbor Logistics & Services), line items with quantities, unit prices, and total amounts, as well as payment terms and due dates. Pages 1 and 2 clearly form a single invoice. Pages 3-11 appear to be supporting shipping and cargo documents related to the shipment, and page 12 is a separate invoice from Polvex Distribution. Since the primary document (pages 1-2) is an invoice and the other documents are supporting or a secondary invoice, the overall document is classified as an INVOICE and marked for processing. The system will need to handle the secondary invoice separately."
+  },
+  "meta": {
+    "source_pdf_sha256": "a3e65fdcf15e2b0715cabfbb987407076de95c60d82b97a9220f18cb853de493",
+    "page_range": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "prompt_version": "v2_mixed_doc_segmentation",
+    "model": "gemini-3.1-flash-lite",
+    "schema_version": "v4_quality_fixes",
+    "cache_hit": false
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "INV-27.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Invoice for warehousing services with detailed charges and tax summary."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a detailed breakdown of services rendered, including line items for charges, a subtotal, tax, and a total due amount. The presence of a clear invoice number and billing details supports its classification as a payable document ready for processing."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.14,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 161,
+      "total_tokens": 6373,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "a6f3edfc1717a6773a7fcaab90d77e9054a3acfec9f14d830e5866c9ffe74551",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "0f6841fec5049602c51aa540659b9f5461a7154be1e410fca1da6b8709bc23e5"
+  }
+}

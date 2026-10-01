@@ -1,0 +1,129 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "No explicit invoice number or PO number found. The invoice date and due date are not provided. The unit price for line items is not explicitly printed.",
+    "invoice_number": null,
+    "invoice_type": "INVOICE",
+    "invoice_date": null,
+    "due_date": null,
+    "currency": "GHC",
+    "supplier": {
+      "name": "Redwater Technologies",
+      "address": "Lindensrasse 111",
+      "vat_id": "C9756403675"
+    },
+    "buyer": {
+      "name": "Northwind HOLDINGS OÜ",
+      "address": "High Street 10"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "GHC 8,045.40",
+    "subtotal_raw": "GHC 6,600.00",
+    "total_tax_raw": "GHC 1,449.40",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "VAT",
+        "tax_rate_raw": "15%",
+        "tax_amount_raw": "GHC 1,049.40",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Meal per head",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "60",
+        "unit_price_raw": "GH₵ 90.00",
+        "total_raw": "GHC 5400.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Transportation and Set up",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": "GH₵ 1,200.00",
+        "total_raw": "GHC 1,200.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "NHIL (2.5%)",
+        "item_type": "TAX",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "GHC 165.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "GETFund Levy (2.5%)",
+        "item_type": "TAX",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "GHC 165.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "COVID-19 Levy (1%)",
+        "item_type": "TAX",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "GHC 66.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 8.05,
+    "tokens": {
+      "prompt_tokens": 27037,
+      "completion_tokens": 755,
+      "total_tokens": 27792,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "16a4f08db282dc40f52d536a7e61d0d03c039594e509945b12336f9d7fac8978",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "483ae48a8ab2632f5fd4457b23d4437dbcbfe3c3a6a59675b15fe7e14d7a3171"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-01.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice for project management services with detailed line items."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice labeled 'Rechnung' with a clear invoice number and detailed line items for services rendered, indicating it is a payable document. It meets the criteria for classification as an INVOICE."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 4.31,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 143,
+      "total_tokens": 3522,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "f34d3f1b5ae89eba33a2a2feccb11bdb73e085d0e5295eebae2f2bf6dd095b63",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "1ebf4df579aec1afc8c36e00f0d4cdcbcabef93614fdc8eeccfaa7727501be35"
+  }
+}

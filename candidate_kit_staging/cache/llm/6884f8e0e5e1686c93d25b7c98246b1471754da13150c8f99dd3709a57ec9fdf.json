@@ -1,0 +1,95 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2,
+      3
+    ],
+    "_extraction_notes": "All fields extracted as per the rules. No ambiguities or missing fields.",
+    "invoice_number": "39015",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2018-06-01",
+    "due_date": "2018-06-01",
+    "currency": "USD",
+    "supplier": {
+      "name": "AmeriHealth Caritas",
+      "address": "200 Stevens Drive\nSuite 100\nLester, PA 19113",
+      "vat_id": null
+    },
+    "buyer": {
+      "name": "100 AIRPORT KPG III LLC",
+      "address": "100 Stevens Dr, A1 1, Lester"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "17,657.53",
+    "subtotal_raw": null,
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "Gross Receipts Tax",
+        "tax_rate_raw": null,
+        "tax_amount_raw": "819.80",
+        "_placement": "HEADER"
+      },
+      {
+        "tax_name": "Sales Tax",
+        "tax_rate_raw": null,
+        "tax_amount_raw": "845.35",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Electric 04/27/18-05/16/18",
+        "item_type": "SERVICE",
+        "uom": "Unit",
+        "quantity_raw": "100",
+        "unit_price_raw": null,
+        "total_raw": "17,657.53",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 6.62,
+    "tokens": {
+      "prompt_tokens": 78916,
+      "completion_tokens": 453,
+      "total_tokens": 79369,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 1,
+    "cache_hit": false,
+    "source_pdf_sha256": "1cf3a94a9d582c479e37635baca5297a738104052636ae31b9b4472122767065",
+    "page_range": [
+      1,
+      2,
+      3
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "e2d43575c631e6fc21966866e3b57b6de8fa3adf1ea4c0e769fbb0459a33c438"
+  }
+}

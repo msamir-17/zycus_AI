@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "DU-06.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Vendor commercial invoice detailing goods purchased with invoice number and billing information."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document contains a vendor commercial invoice with clear details of goods purchased, including an invoice number and billing information. Both pages are part of the same invoice, as they share the same invoice number and seller information, thus they are grouped together as one payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 6.45,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 158,
+      "total_tokens": 6370,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "9d2d7c8c723f9222bb15516d3ac4d836bde10d98fc8bd2591daf341ff5c5d1a7",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "186f9142c5cc5847f91e6fb823899975df0c606d0bf1c335a00a3db09839ccc3"
+  }
+}

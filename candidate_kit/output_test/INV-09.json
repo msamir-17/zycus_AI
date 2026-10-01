@@ -1,0 +1,59 @@
+{
+  "file": "INV-09.pdf",
+  "payables": [
+    {
+      "invoice_number": "11768395",
+      "invoice_date": "2025-06-06",
+      "due_date": "2025-06-27",
+      "invoice_type": "INVOICE",
+      "currency": "EUR",
+      "supplier": {
+        "name": "ARVE",
+        "supplier_id": "",
+        "address": "Lindenstrasse 15, EE-10134 TALLINN",
+        "vat_id": "EE3897676194"
+      },
+      "buyer": {
+        "company_code": "",
+        "business_unit_code": "",
+        "location_code": ""
+      },
+      "payment_term_id": "Net_21",
+      "po_number": "",
+      "po_id": "",
+      "gross_total": "37767.32",
+      "subtotal": "31889.09",
+      "total_tax_amount": "5878.23",
+      "discount_amount": "",
+      "freight_charges": "",
+      "insurance_charges": "",
+      "extra_charges": "",
+      "excise_duties": "",
+      "taxes": [
+        {
+          "tax_type": "VAT",
+          "tax_name": "TAX",
+          "tax_rate": "",
+          "tax_amount": "5878.23",
+          "tax_type_code": ""
+        }
+      ],
+      "line_items": [
+        {
+          "description": "Lump-sum service / payable charge",
+          "item_type": "SERVICE",
+          "uom": "EA",
+          "quantity": "1",
+          "unit_price": "31889.09",
+          "total": "31889.09",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        }
+      ]
+    }
+  ],
+  "declined": []
+}

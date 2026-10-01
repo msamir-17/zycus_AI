@@ -1,0 +1,89 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "No ambiguities or missing fields.",
+    "invoice_number": "852566",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-02-02",
+    "due_date": "2026-02-12",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Northwind Operations OÜ",
+      "address": "Lindenstrasse 15, 10134 Estonia",
+      "vat_id": "EE398766194"
+    },
+    "buyer": {
+      "name": "Herr Alex Kask",
+      "address": null
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "438,00 €",
+    "subtotal_raw": "438,00 €",
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [],
+    "line_items": [
+      {
+        "description": "Projektmanagement Nachberechnung aus November",
+        "item_type": "SERVICE",
+        "uom": "Std.",
+        "quantity_raw": "4",
+        "unit_price_raw": "73,00 €",
+        "total_raw": "292,00 €",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Projektmanagement Nachberechnung aus Dezember",
+        "item_type": "SERVICE",
+        "uom": "Std.",
+        "quantity_raw": "2",
+        "unit_price_raw": "73,00 €",
+        "total_raw": "146,00 €",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 6.69,
+    "tokens": {
+      "prompt_tokens": 38371,
+      "completion_tokens": 429,
+      "total_tokens": 38800,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "f34d3f1b5ae89eba33a2a2feccb11bdb73e085d0e5295eebae2f2bf6dd095b63",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "6e84a6441485ead285d6227a58382f4efcd805dbfc1cef6223b741b3da0c3af5"
+  }
+}

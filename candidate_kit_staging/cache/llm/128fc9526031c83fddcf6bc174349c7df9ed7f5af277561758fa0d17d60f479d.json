@@ -1,0 +1,85 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as per the rules. The unit price is not explicitly printed, so it is marked as null.",
+    "invoice_number": "6265-K",
+    "invoice_type": "CREDIT_MEMO",
+    "invoice_date": "2025-03-16",
+    "due_date": null,
+    "currency": "EUR",
+    "supplier": {
+      "name": "Tavolo OÜ",
+      "address": "Rua do Ouro 15, 10134 Kesklinna, Tallinna, Harju maakond, Eesti",
+      "vat_id": "788665507"
+    },
+    "buyer": {
+      "name": "Northwind Operations OÜ",
+      "address": "Rua do Ouro 15, 10134 Kesklinna, Tallinna, Harju maakond, Eesti"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "-400,00",
+    "subtotal_raw": "-327,87",
+    "total_tax_raw": "-72,13",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "KM",
+        "tax_rate_raw": "22",
+        "tax_amount_raw": "-72,13",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Toitlustamine Tavolo",
+        "item_type": "SERVICE",
+        "uom": "tk",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "-327,87",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": true
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 7.37,
+    "tokens": {
+      "prompt_tokens": 38376,
+      "completion_tokens": 428,
+      "total_tokens": 38804,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "379399730c82ea938d88615913abd33f5ba21b9c6a8a7fdccde87407329d2665",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "01d7bfc537d7e9a23c247d40f42db6acc7c72bc26b6a4005d84d8c00edfe8478"
+  }
+}

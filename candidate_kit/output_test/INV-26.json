@@ -1,0 +1,168 @@
+{
+  "file": "INV-26.pdf",
+  "payables": [
+    {
+      "invoice_number": "",
+      "invoice_date": "2025-02-08",
+      "due_date": "",
+      "invoice_type": "INVOICE",
+      "currency": "MYR",
+      "supplier": {
+        "name": "Mastura Print Sdn Bhd",
+        "supplier_id": "",
+        "address": "Mind Valley City, Lingkaran Syed Putra, 59200 Kuala Lumpur, Malaysia",
+        "vat_id": "MY 5018 3633 188"
+      },
+      "buyer": {
+        "company_code": "",
+        "business_unit_code": "",
+        "location_code": ""
+      },
+      "payment_term_id": "",
+      "po_number": "",
+      "po_id": "",
+      "gross_total": "873.53",
+      "subtotal": "873.53",
+      "total_tax_amount": "",
+      "discount_amount": "",
+      "freight_charges": "",
+      "insurance_charges": "",
+      "extra_charges": "684.58",
+      "excise_duties": "",
+      "taxes": [],
+      "line_items": [
+        {
+          "description": "WIPES",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "2",
+          "unit_price": "14.20",
+          "total": "28.40",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "PEEL FRESH MANGO 1L",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "2",
+          "unit_price": "10.90",
+          "total": "21.80",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "NON MIXED ROOT CHIPS",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "2",
+          "unit_price": "6.90",
+          "total": "13.80",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "SWEET N SALTY 120G",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "4",
+          "unit_price": "3.60",
+          "total": "14.40",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "GRAPE 300G",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "2",
+          "unit_price": "11.80",
+          "total": "23.60",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "NUT MIX HONEY 140GM",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "2",
+          "unit_price": "17.00",
+          "total": "34.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "CREAM 300G",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "1",
+          "unit_price": "5.95",
+          "total": "5.95",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "CEREAL THICK &",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "2",
+          "unit_price": "9.90",
+          "total": "19.80",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "CEREAL FIT",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "2",
+          "unit_price": "12.60",
+          "total": "25.20",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        },
+        {
+          "description": "BAG",
+          "item_type": "GOODS",
+          "uom": "EA",
+          "quantity": "4",
+          "unit_price": "0.50",
+          "total": "2.00",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        }
+      ]
+    }
+  ],
+  "declined": []
+}

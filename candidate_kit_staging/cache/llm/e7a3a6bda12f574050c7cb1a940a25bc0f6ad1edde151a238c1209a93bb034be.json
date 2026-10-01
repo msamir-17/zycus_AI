@@ -1,0 +1,52 @@
+{
+  "data": {
+    "filename": "INV-19.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice detailing goods/services purchased with itemized costs."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice containing vendor details, itemized charges, and totals, indicating it is a payable document. The second page includes a signature but does not introduce a new invoice number or billing party, confirming it as part of the same invoice."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.85,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 151,
+      "total_tokens": 6363,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "16a4f08db282dc40f52d536a7e61d0d03c039594e509945b12336f9d7fac8978",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "d0b4a0a98769ca6a8840b3d074373f2ea61658f2815505ec29acec36502abda6"
+  }
+}

@@ -1,0 +1,316 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as per the rules. No ambiguities or missing fields.",
+    "invoice_number": "1410",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-04-30",
+    "due_date": "2026-05-30",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Northwind Services EE OÜ",
+      "address": "Rua do Ouro 15, 10134 Kesklinna linnaosa, Tallinn, Harju maakond",
+      "vat_id": "EE258672691"
+    },
+    "buyer": {
+      "name": "Northwind Services EE OÜ",
+      "address": "Rua do Ouro 15, 10134 Kesklinna linnaosa, Tallinn, Harju maakond"
+    },
+    "payment_terms_raw": "30 päeva",
+    "po_number": null,
+    "gross_total_raw": "152 587.46",
+    "subtotal_raw": "104 263.02",
+    "total_tax_raw": "25 023.12",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "KM",
+        "tax_rate_raw": "24%",
+        "tax_amount_raw": "25 023.12",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Parking fee EUROPARK",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "63 479.69",
+        "total_raw": "63 479.69",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee EUROPARK discount 20%",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "-1",
+        "unit_price_raw": "12 695.94",
+        "total_raw": "-12 695.94",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee EUROPARK success fee",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "3 173.98",
+        "total_raw": "3 173.98",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee EUROPARK Ülemiste City H Garage, zone 335",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "234.86",
+        "total_raw": "234.86",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee EUROPARK KESKLINN",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "13 528.54",
+        "total_raw": "13 528.54",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee EUROPARK SÜDALIN",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "8 897.68",
+        "total_raw": "8 897.68",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee ÕHISTEENUSED OPEN AREA",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "21 380.60",
+        "total_raw": "21 380.60",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee ÕHISTEENUSED OPEN AREA discount 20%",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "-1",
+        "unit_price_raw": "4 276.01",
+        "total_raw": "-4 276.01",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee ÕHISTEENUSED OPEN AREA success fee",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "1 069.00",
+        "total_raw": "1 069.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee ÕHISTEENUSED TARTU",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "875.10",
+        "total_raw": "875.10",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee AVALIKUD TEENUSED",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "1 075.86",
+        "total_raw": "1 075.86",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee AVALIKUD TEENUSED discount 20%",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "-1",
+        "unit_price_raw": "215.17",
+        "total_raw": "-215.17",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee AVALIKUD TEENUSED success fee",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "53.79",
+        "total_raw": "53.79",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking start fee AVALIKUD TEENUSED",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "119.00",
+        "total_raw": "119.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee Snabb",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "2 946.89",
+        "total_raw": "2 946.89",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee Snabb discount",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "-1",
+        "unit_price_raw": "736.70",
+        "total_raw": "-736.70",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee Snabb success fee",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "1 952.18",
+        "total_raw": "1 952.18",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee Snabb special price",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "1 108.87",
+        "total_raw": "1 108.87",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee Snabb special price for North success fee",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "-1",
+        "unit_price_raw": "160.85",
+        "total_raw": "-160.85",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking start fee Snabb",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "2 379.20",
+        "total_raw": "2 379.20",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee Mahtra 5 / Mahtra 27",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "50.00",
+        "total_raw": "50.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Parking fee Mahtra 5 / Mahtra 27 success fee",
+        "item_type": "SERVICE",
+        "uom": "1",
+        "quantity_raw": "1",
+        "unit_price_raw": "12.50",
+        "total_raw": "12.50",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 21.53,
+    "tokens": {
+      "prompt_tokens": 27037,
+      "completion_tokens": 2282,
+      "total_tokens": 29319,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "f91c3508585defdec8b46a0cd4f5d4128a84973bd927de907d897fed18eca20f",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "2f5c0906bf1e49dc50c574844f807c4069c1407a298ffbca88cf1ba9b079c6e8"
+  }
+}

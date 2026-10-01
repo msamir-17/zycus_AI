@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "INV-25.pdf",
+    "document_type": "INVOICE",
+    "decision": "SPLIT",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Invoice from Fairmont Services LDA detailing payment conditions and total amount."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a vendor commercial invoice for goods/services purchased, with clear details such as invoice number, vendor information, and total amount due. Both pages present the same invoice information, indicating they are part of the same payable, thus they are grouped together in one segment."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.53,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 171,
+      "total_tokens": 6383,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "e0d7babe165dfc3c5d2a251dc7f51fe8ebc828b10948f52aeabcbf470151c2b2",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "d4599166bf1ba78d4fc485d977996673ff00deac0c701b12c241285ba252e6c8"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "The line item has an asterisk indicating it is non-taxable. The tax is listed as 0% at the header level.",
+    "invoice_number": "72",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2018-06-05",
+    "due_date": "2018-06-19",
+    "currency": null,
+    "supplier": {
+      "name": "215B.E.A.R.S.",
+      "address": "4613 Conshohocken Avenue Philadelphia PA 19131",
+      "vat_id": null
+    },
+    "buyer": {
+      "name": "Amerihealthcaritas Transportation",
+      "address": null
+    },
+    "payment_terms_raw": "NET 14",
+    "po_number": "30193",
+    "gross_total_raw": "750.00",
+    "subtotal_raw": "750.00",
+    "total_tax_raw": "0.00",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "TAX",
+        "tax_rate_raw": "0%",
+        "tax_amount_raw": "0.00",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "5/31/18 1- 15 15 passenger van from Philly going to DC pick back up in DC coming back to to Philly . 8:30am to 5:30pm 9hr",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": "$750.00",
+        "total_raw": "$750.00*",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": null,
+        "item_type": null,
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": "$0.00",
+        "total_raw": "$0.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "native",
+    "fallback_used": false,
+    "duration_s": 25.0,
+    "cache_hit": false,
+    "retries": 0,
+    "source_pdf_sha256": "a9ec0fd426ebcaf72b1104f523b5f767df0525401ba4c57cd88ec7f5e7a95b8d",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "1f59b95319195599cb9cd79c106441e2a094d5e270e6f84a62e98037a8638aca"
+  }
+}

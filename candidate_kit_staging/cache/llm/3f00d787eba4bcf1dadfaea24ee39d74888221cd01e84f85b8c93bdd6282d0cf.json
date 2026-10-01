@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-07.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice for services rendered with detailed charges and total amount."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice detailing goods/services purchased, including an invoice number, date, seller information, and total amount due, which confirms it as a bookable payable."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.38,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 136,
+      "total_tokens": 3515,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "5fb06fdab3c81e0f8d3150771513f23fdb518f8e347a94bbb06da7318135e79e",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "4210614505da3e045ac718520e95a0a171287e56925afe6277e13a0c1511f375"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "data": {
+    "filename": "DU-09.pdf",
+    "document_type": "NON_PAYABLE",
+    "decision": "DECLINE",
+    "document_count": 0,
+    "page_segmentation": [],
+    "decline_reason": "The document is a sponsorship form and not a payable invoice or credit memo.",
+    "rationale": "The content of the document consists of a request form for donations and sponsorship, which does not represent a commercial invoice or any payable document. It includes details about a sponsorship request rather than a transaction for goods or services purchased."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 4.02,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 117,
+      "total_tokens": 6329,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "14c316cc15446a301e01fb468d4efb3e0ff8bf1522cf8891701dd542defc989b",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "6cfeade45bc85d84826c180ec1e7e904120badd754bde58a02ff72fc0603d47c"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "No explicit unit prices printed. Quantity assumed to be 1 for line items.",
+    "invoice_number": "TLLI772836045",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2025-06-09",
+    "due_date": "2025-07-07",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Northwind Operations OÜ",
+      "address": "Vana-Lõuna TN 15, 10134 TALLINN, ESTONIA",
+      "vat_id": null
+    },
+    "buyer": {
+      "name": "MNH, MANNHEIM",
+      "address": "Gartherweg 6, PL-01-940, Warsaw"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "26,47",
+    "subtotal_raw": null,
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": "2,83",
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "KM",
+        "tax_rate_raw": "22,00%",
+        "tax_amount_raw": "4,77",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "ECONOMY SELECT",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1,00",
+        "unit_price_raw": null,
+        "total_raw": "18,87",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "FUEL SURCHARGE",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1,00",
+        "unit_price_raw": null,
+        "total_raw": "2,83",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 6.81,
+    "tokens": {
+      "prompt_tokens": 75210,
+      "completion_tokens": 495,
+      "total_tokens": 75705,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "7b7bbbcb7d61a1b18bd83e3f6a1cb56ab1ddec50845888a7e8adefc484b7a216",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "918a2390359148511d6f2a4c025b6994fce6415c5f324ebbe5bb19c53f38b734"
+  }
+}

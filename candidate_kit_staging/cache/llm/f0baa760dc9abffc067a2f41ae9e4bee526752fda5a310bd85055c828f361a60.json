@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-11.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice detailing goods/services purchased with a clear invoice number and vendor information."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a clear invoice number, vendor details, and itemized charges for goods/services purchased. The layout includes standard invoice elements such as billing information, item descriptions, quantities, and total amounts, indicating it is a bookable payable ready for extraction."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.3,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 164,
+      "total_tokens": 3543,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "b54e26a09bbc5be96a45bd58996aa17cbccb6473e4aa73b4962b735534e93768",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "87106cbb6ab711506a37b34685c1e199381f5b7d5c0c63aa3b305dbca0fc74d7"
+  }
+}

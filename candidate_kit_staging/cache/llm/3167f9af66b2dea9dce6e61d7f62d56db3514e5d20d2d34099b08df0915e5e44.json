@@ -1,0 +1,121 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as printed. No ambiguities or missing fields.",
+    "invoice_number": "INV-1587",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-05-01",
+    "due_date": "2026-05-31",
+    "currency": "GBP",
+    "supplier": {
+      "name": "Northwind Services UK Ltd",
+      "address": "Rua do Ouro 175, Taper Studio, London, SE1 4GT",
+      "vat_id": "474927490"
+    },
+    "buyer": {
+      "name": "Silverbrook Media Limited",
+      "address": "2nd Floor, Parnu mnt 117, London, Middlesex, N1 9RY, UNITED KINGDOM"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "29,253.72",
+    "subtotal_raw": "26,042.68",
+    "total_tax_raw": "3,211.04",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "VAT",
+        "tax_rate_raw": "20%",
+        "tax_amount_raw": "3,211.04",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Management Fee for June 2026",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1.00",
+        "unit_price_raw": "14,620.18",
+        "total_raw": "14,620.18",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": [
+          {
+            "tax_name": "VAT",
+            "tax_rate_raw": "20%",
+            "tax_amount_raw": "2,924.04",
+            "_placement": "LINE"
+          }
+        ]
+      },
+      {
+        "description": "Business Rates for June 2026",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1.00",
+        "unit_price_raw": "9,987.50",
+        "total_raw": "9,987.50",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Utilities for June 2026",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "1.00",
+        "unit_price_raw": "1,435.00",
+        "total_raw": "1,435.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": [
+          {
+            "tax_name": "VAT",
+            "tax_rate_raw": "20%",
+            "tax_amount_raw": "287.00",
+            "_placement": "LINE"
+          }
+        ]
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 9.53,
+    "tokens": {
+      "prompt_tokens": 27042,
+      "completion_tokens": 695,
+      "total_tokens": 27737,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "26a27d5237577caf24c3acc4ccbbd2216fc560776d7d2c2ed45d3a96d36b1a1f",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "d72ebf1b75e8c5a7e41a9486c8875375591213215c8086e6a68bc2b2013ce94b"
+  }
+}

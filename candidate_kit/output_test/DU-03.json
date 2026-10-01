@@ -1,0 +1,10 @@
+{
+  "file": "DU-03.pdf",
+  "payables": [],
+  "declined": [
+    {
+      "doc_type": "NON_PAYABLE",
+      "reason": "All pages consist of shipping documents, air waybills, and non-payable attachments."
+    }
+  ]
+}

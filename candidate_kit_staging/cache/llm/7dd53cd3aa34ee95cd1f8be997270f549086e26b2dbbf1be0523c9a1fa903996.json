@@ -1,0 +1,155 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+    "invoice_number": "0248727220",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2018-06-27",
+    "due_date": null,
+    "currency": "USD",
+    "supplier": {
+      "name": "Ciox Health",
+      "address": "P.O. BOX 409875\nAtlanta, GA 30384-9875",
+      "vat_id": "Fed Tax ID 58 - 2659941"
+    },
+    "buyer": {
+      "name": "QUALITY MANAGEMENT DEPT\nAMERIHEALTH CARTIAS LA",
+      "address": "PO BOX 38580\nBATON ROUGE, LA 70884-3580"
+    },
+    "payment_terms_raw": null,
+    "po_number": "10000020040",
+    "gross_total_raw": "30.25",
+    "subtotal_raw": "30.25",
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [],
+    "line_items": [
+      {
+        "description": "Basic Fee",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "25.50",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Retrieval Fee",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": "13",
+        "unit_price_raw": "0.00",
+        "total_raw": "0.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Per Page Copy (Paper) 1",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "2.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Electronic Data Archive Fee",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "2.75",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Subtotal",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "27.50",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Sales Tax",
+        "item_type": "TAX",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "2.75",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Invoice Total",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "30.25",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Balance Due",
+        "item_type": "SERVICE",
+        "uom": null,
+        "quantity_raw": null,
+        "unit_price_raw": null,
+        "total_raw": "30.25",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 9.57,
+    "tokens": {
+      "prompt_tokens": 27034,
+      "completion_tokens": 897,
+      "total_tokens": 27931,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 3,
+    "cache_hit": false,
+    "source_pdf_sha256": "8f217715d2c6a085387e48c421b0c4ecf4e7e87fd98d9f88d887d1cd96574880",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "dec51e0bc1fec625be005be27d0a7ca2eb1face5159c85b841b2fa59a95badfd"
+  }
+}

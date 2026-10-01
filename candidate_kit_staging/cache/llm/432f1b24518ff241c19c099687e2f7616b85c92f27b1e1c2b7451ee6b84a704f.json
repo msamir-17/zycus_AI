@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-21.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice for services rendered by the vendor."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice detailing services provided, including invoice number, vendor information, and itemized charges, which qualifies it as a bookable payable. There are no indications of it being a credit memo, customs document, or any other non-payable type."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.54,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 152,
+      "total_tokens": 3531,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "ed3dbdadf4f92873e903c0c73e5a841e3a801d150cb1daa67b1b4f7b6f7dfc1f",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "887967c88caa8d6e0b3d293bac38d3b3aaaddb3f3ec57260cedaaf954acd55c2"
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+    "invoice_number": "#9972-907",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-03-18",
+    "due_date": "2026-04-01",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Northwind Technology OÜ",
+      "address": "Market Road 15, Harjumaa, 10134 Tallinn, Estonia",
+      "vat_id": null
+    },
+    "buyer": {
+      "name": "Meridian Logistics OÜ",
+      "address": "Avenida Central 22, 50106 Tartu linn, Estonia"
+    },
+    "payment_terms_raw": null,
+    "po_number": "#2287",
+    "gross_total_raw": "€608,23",
+    "subtotal_raw": "€490,51",
+    "total_tax_raw": "€117,72",
+    "discount_amount_raw": "€-48,09",
+    "freight_charges_raw": "€50,00",
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "KM",
+        "tax_rate_raw": "24%",
+        "tax_amount_raw": "€117,72",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Led Bar FOS Luminus BAR",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "9",
+        "unit_price_raw": "€6,00",
+        "total_raw": "€54,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Meremini ADJ Starburst",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "1",
+        "unit_price_raw": "€10,00",
+        "total_raw": "€10,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pioneer CDJ-3000",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "2",
+        "unit_price_raw": "€45,00",
+        "total_raw": "€90,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pioneer DJM-900 NXS2 mixer",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "1",
+        "unit_price_raw": "€45,00",
+        "total_raw": "€45,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "DJ laud 2m x 0,5m = 1m",
+        "item_type": "GOODS",
+        "uom": "päev",
+        "quantity_raw": "1",
+        "unit_price_raw": "€18,00",
+        "total_raw": "€18,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Aktivikõlar Veritas 8000 komplekt",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "1",
+        "unit_price_raw": "€103,60",
+        "total_raw": "€103,60",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Aktivkõlar NOVA Veritas 12",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "2",
+        "unit_price_raw": "€20,00",
+        "total_raw": "€40,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Aktivsubwoofer Nova Veritas 18S",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "2",
+        "unit_price_raw": "€28,00",
+        "total_raw": "€56,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Toitejuhe",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "4",
+        "unit_price_raw": "€0,10",
+        "total_raw": "€0,40",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Kõlari statiivi K&M ring lock vahepost (pikk)",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "2",
+        "unit_price_raw": "€3,60",
+        "total_raw": "€7,20",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "XLR kaabel 10m",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "2",
+        "unit_price_raw": "€0,00",
+        "total_raw": "€0,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "XLR kaabel 3m",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "2",
+        "unit_price_raw": "€0,00",
+        "total_raw": "€0,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pikendusjuhe 5m",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "3",
+        "unit_price_raw": "€0,00",
+        "total_raw": "€0,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Linnasene transport",
+        "item_type": "GOODS",
+        "uom": "Fikseeritud",
+        "quantity_raw": "1",
+        "unit_price_raw": "€50,00",
+        "total_raw": "€50,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Tehnika",
+        "item_type": "GOODS",
+        "uom": "tundi",
+        "quantity_raw": "2",
+        "unit_price_raw": "€84,00",
+        "total_raw": "€168,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 16.94,
+    "tokens": {
+      "prompt_tokens": 38370,
+      "completion_tokens": 1671,
+      "total_tokens": 40041,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "7fb8377b0e356ee49973facc735be9622e9aed9b4f00f4ba0947c8797fe100cb",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "9a1883d51c13729989eeb1487a306067c6d7ef5215b2ab4f982d6314301dc6db"
+  }
+}

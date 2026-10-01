@@ -1,0 +1,36 @@
+{
+  "data": {
+    "filename": "INV-32.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice from 215B.E.A.R.S. for transportation services."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is clearly labeled as an 'Invoice' and contains all the necessary information for accounts payable processing, including vendor details, invoice number, date, line items, and total amount due. The 'Bill To' section indicates it is for Amerihealthcaritas Transportation, and the vendor's details are present. The presence of an invoice number (72) and a balance due of $750.00 confirms it is a payable document."
+  },
+  "meta": {
+    "provider": "gemini",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "native",
+    "fallback_used": false,
+    "duration_s": 17.7,
+    "cache_hit": false,
+    "retries": 0,
+    "source_pdf_sha256": "a9ec0fd426ebcaf72b1104f523b5f767df0525401ba4c57cd88ec7f5e7a95b8d",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "9357f02b6c925d290245af00db711961a7ad29e136360164ba68cbfbc9c28e6d"
+  }
+}

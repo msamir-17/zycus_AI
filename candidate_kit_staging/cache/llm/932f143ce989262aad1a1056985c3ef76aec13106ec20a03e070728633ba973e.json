@@ -1,0 +1,47 @@
+{
+  "data": {
+    "filename": "INV-23.pdf",
+    "document_type": "NON_PAYABLE",
+    "decision": "DECLINE",
+    "document_count": 0,
+    "page_segmentation": [],
+    "decline_reason": "The document is an estimate and not a payable invoice.",
+    "rationale": "The first page clearly states 'ESTIMATE' and includes an estimate number, indicating that it is not a commercial invoice for goods or services purchased. The subsequent pages contain additional details related to the estimate, but none indicate a payable invoice. Therefore, the document is classified as non-payable and the decision is to decline."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.98,
+    "tokens": {
+      "prompt_tokens": 17544,
+      "completion_tokens": 133,
+      "total_tokens": 17677,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "d6b8d3f2623765d42d4bede13f5109d3602e6a3cc6eaa80319c8a2ba54c05fd3",
+    "page_range": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "6ad75d048ee79b757bcf84127c7ceb0a3002b8cf7ea9306e0a830f810fda7f42"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-36.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice from Oracle America, Inc. to AmeriHealth Caritas Services detailing the total amount due."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a clear invoice number, invoice date, billing and shipping addresses, payment terms, and a total amount due. These features confirm it is a vendor commercial invoice for goods/services purchased, making it a bookable payable ready for extraction."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 5.95,
+    "tokens": {
+      "prompt_tokens": 3590,
+      "completion_tokens": 167,
+      "total_tokens": 3757,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 1,
+    "cache_hit": false,
+    "source_pdf_sha256": "7f685150edaf1ccbd44d4f24a3afc49a18bcdbf6d02cf921e37c2fc34b4fbdbe",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "bc538dd0a517e0244f609cf538c3b122d058d5febd100e722fc93a22b3f86640"
+  }
+}

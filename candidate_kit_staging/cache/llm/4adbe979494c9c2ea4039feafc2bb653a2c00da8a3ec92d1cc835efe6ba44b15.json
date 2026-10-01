@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "HLD-05.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Commercial invoice detailing goods purchased with line items and totals."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document contains a commercial invoice with line items, vendor details, and a total amount due, indicating it is a payable document. Both pages are part of the same invoice as they share the same invoice number and vendor, thus counted as one segment."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.26,
+    "tokens": {
+      "prompt_tokens": 6214,
+      "completion_tokens": 155,
+      "total_tokens": 6369,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "42e8067a5126b8c43f42bd6457f256980186b945e86cc19a5e6d478e55f35415",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "836cf608a2a5fe786d55890a47bf624c1efa27b0b19d86edc203535b79b23c2d"
+  }
+}

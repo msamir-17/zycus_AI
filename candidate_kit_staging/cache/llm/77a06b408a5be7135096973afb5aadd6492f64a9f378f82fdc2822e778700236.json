@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "HLD-10.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Invoice detailing goods/services purchased with associated costs."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document contains a clear invoice layout with line items detailing goods/services purchased, including quantities and prices. The presence of an invoice number and billing details confirms it as a commercial invoice, making it bookable for accounts payable processing."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.36,
+    "tokens": {
+      "prompt_tokens": 6214,
+      "completion_tokens": 148,
+      "total_tokens": 6362,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "275ee157afe42a05e5f111c698457216f9bcbf818f34700b956c6c2c07a60b95",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "343ecd634201a2d8536b7a6c5d9ce204880bb1860758fae42699759de9d53c6e"
+  }
+}

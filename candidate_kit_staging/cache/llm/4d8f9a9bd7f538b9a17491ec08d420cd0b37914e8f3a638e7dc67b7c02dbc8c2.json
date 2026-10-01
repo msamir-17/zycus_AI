@@ -1,0 +1,85 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "No explicit unit price printed in its own column. The invoice type is INVOICE.",
+    "invoice_number": "18533",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-03-25",
+    "due_date": "2026-04-24",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Larkspur Print OÜ",
+      "address": "Jalan Ampang 60, Tallinn, Harju maakond 10412",
+      "vat_id": "EE7575780626"
+    },
+    "buyer": {
+      "name": "Northwind Operations OÜ",
+      "address": "Rua do Ouro 15, Tallinn, Harju maakond 10134"
+    },
+    "payment_terms_raw": "30 pv neto",
+    "po_number": null,
+    "gross_total_raw": "594,30",
+    "subtotal_raw": "479,27",
+    "total_tax_raw": "115,03",
+    "discount_amount_raw": "-0,01",
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "KM",
+        "tax_rate_raw": "24%",
+        "tax_amount_raw": "115,03",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "17/03 Toitlustus Ümardus",
+        "item_type": "SERVICE",
+        "uom": "kord",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "479,28",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 5.96,
+    "tokens": {
+      "prompt_tokens": 38369,
+      "completion_tokens": 426,
+      "total_tokens": 38795,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "0144f284f656fbe966eb4dcabba199ff7ce78ee971088ebedcd86686b5fe6384",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "8fecef7ba72f764e2d239c845a74049d7995aa787b62981b61b4d23726a3525c"
+  }
+}

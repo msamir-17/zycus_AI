@@ -1,0 +1,61 @@
+{
+  "data": {
+    "filename": "DU-02.pdf",
+    "document_type": "CUSTOMS_DOCUMENT",
+    "decision": "DECLINE",
+    "document_count": 0,
+    "page_segmentation": [],
+    "decline_reason": "The document consists of customs invoices and declarations, which are non-payable for accounts payable processing.",
+    "rationale": "The document contains multiple pages labeled as 'Customs Consolidated Invoice' and 'Customs Detailed Invoice', indicating that it is related to customs documentation rather than a vendor commercial invoice for goods or services purchased. Therefore, it does not meet the criteria for processing as a payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 5.34,
+    "tokens": {
+      "prompt_tokens": 57206,
+      "completion_tokens": 133,
+      "total_tokens": 57339,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "5e19ee4a5c1a01dbcaa23932019288a928dadc46d3e1cf4f2fa4d273c5b65c20",
+    "page_range": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "b052b2a84bb16a8ca563966369d281cac54811f78ca57fdd8970cf5785ae035c"
+  }
+}

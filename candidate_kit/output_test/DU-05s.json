@@ -1,0 +1,10 @@
+{
+  "file": "DU-05s.pdf",
+  "payables": [],
+  "declined": [
+    {
+      "doc_type": "NON_PAYABLE",
+      "reason": "All pages consist of delivery notes and a shipment receipt, which are non-payable documents."
+    }
+  ]
+}

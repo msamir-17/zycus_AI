@@ -1,0 +1,179 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "No explicit unit prices were printed in the line items. The total amounts were extracted as printed.",
+    "invoice_number": null,
+    "invoice_type": "INVOICE",
+    "invoice_date": "2025-02-08",
+    "due_date": null,
+    "currency": "MYR",
+    "supplier": {
+      "name": "Mastura Print Sdn Bhd",
+      "address": "Mind Valley City, Lingkaran Syed Putra, 59200 Kuala Lumpur, Malaysia",
+      "vat_id": "MY 5018 3633 188"
+    },
+    "buyer": {
+      "name": "Customer No.",
+      "address": null
+    },
+    "payment_terms_raw": "Instant Transfer",
+    "po_number": null,
+    "gross_total_raw": "873.53",
+    "subtotal_raw": "873.53",
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [],
+    "line_items": [
+      {
+        "description": "WIPES",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": "14.20",
+        "total_raw": "28.40",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "PEEL FRESH MANGO 1L",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": "10.90",
+        "total_raw": "21.80",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "NON MIXED ROOT CHIPS",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": "6.90",
+        "total_raw": "13.80",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "SWEET N SALTY 120G",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "4",
+        "unit_price_raw": "3.60",
+        "total_raw": "14.40",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "GRAPE 300G",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": "11.80",
+        "total_raw": "23.60",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "NUT MIX HONEY 140GM",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": "17.00",
+        "total_raw": "34.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "CREAM 300G",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "1",
+        "unit_price_raw": "5.95",
+        "total_raw": "5.95",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "CEREAL THICK &",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": "9.90",
+        "total_raw": "19.80",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "CEREAL FIT",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "2",
+        "unit_price_raw": "12.60",
+        "total_raw": "25.20",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "BAG",
+        "item_type": "GOODS",
+        "uom": "EA",
+        "quantity_raw": "4",
+        "unit_price_raw": "0.50",
+        "total_raw": "2.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 13.32,
+    "tokens": {
+      "prompt_tokens": 75210,
+      "completion_tokens": 1108,
+      "total_tokens": 76318,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "7bf8d0077d4ee85f5ba4dc208d7c86c0a147d78b2e337a1d5ee57ada64866a19",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "2d3c44a880a71226e8700b26a191c0f2296e9b30545623fb0583ad4376b746ae"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "INV-16.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Invoice for goods/services purchased, detailing items and amounts."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document contains a clear invoice layout with itemized charges, including quantities and prices, indicating it is a vendor commercial invoice for goods/services purchased. Both pages are related to the same invoice, as they share the same invoice number and seller information, thus they are grouped together as one payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.57,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 163,
+      "total_tokens": 6375,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "7b7bbbcb7d61a1b18bd83e3f6a1cb56ab1ddec50845888a7e8adefc484b7a216",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "28b323f23de733a10e95d53ab408635c59225955384d9fa75964f4ca365ff688"
+  }
+}

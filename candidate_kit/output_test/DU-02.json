@@ -1,0 +1,10 @@
+{
+  "file": "DU-02.pdf",
+  "payables": [],
+  "declined": [
+    {
+      "doc_type": "CUSTOMS_DOCUMENT",
+      "reason": "The document consists of customs invoices and declarations, which are non-payable for accounts payable processing."
+    }
+  ]
+}

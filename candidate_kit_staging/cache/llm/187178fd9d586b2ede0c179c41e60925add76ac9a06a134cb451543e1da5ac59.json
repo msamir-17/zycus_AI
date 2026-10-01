@@ -1,0 +1,153 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+    "invoice_number": "32917ALS55",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2025-06-03",
+    "due_date": "2025-07-03",
+    "currency": "KES",
+    "supplier": {
+      "name": "Oakhaven Supply Ltd",
+      "address": "Lindenstrasse 8, P.O Box 14108, Nairobi, Kenya, 00400 KEN",
+      "vat_id": "PIN P088353697W"
+    },
+    "buyer": {
+      "name": "Northwind Support Kenya Ltd KES",
+      "address": "Rua do Ouro 117, BUILDING: AZURE, TOWERS, 10TH FLOOR, RIVERSIDE, SQUARE RIVERSIDE DRIVE, 00600 Nairobi Kenya, PIN P221296346U"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "KES 70,654.30",
+    "subtotal_raw": "60,908.88",
+    "total_tax_raw": "9,745.42",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "VAT",
+        "tax_rate_raw": "16%",
+        "tax_amount_raw": "9,745.42",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Handling Out of POS DEVICES(SUNMI V2PRO) on 19th May",
+        "item_type": "SERVICE",
+        "uom": "Std",
+        "quantity_raw": "0.2744",
+        "unit_price_raw": "500.00",
+        "total_raw": "137.20",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Transport of POS devices(SUNMI V2PRO) on 4th April",
+        "item_type": "SERVICE",
+        "uom": "Std",
+        "quantity_raw": "1",
+        "unit_price_raw": "3,000.00",
+        "total_raw": "3,000.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Transport of POS DEVICES(SUNMI V2PRO) on 19th May",
+        "item_type": "SERVICE",
+        "uom": "Std",
+        "quantity_raw": "1",
+        "unit_price_raw": "1,500.00",
+        "total_raw": "1,500.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Storage charges for POS devices(SUNMI V2PRO) from 1st to 19th May",
+        "item_type": "SERVICE",
+        "uom": "Std",
+        "quantity_raw": "40.53574",
+        "unit_price_raw": "30.00",
+        "total_raw": "1,216.07",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Storage charges for POS devices(SUNMI V2PRO) from 20th to 31st May",
+        "item_type": "SERVICE",
+        "uom": "Std",
+        "quantity_raw": "22.30872",
+        "unit_price_raw": "30.00",
+        "total_raw": "669.26",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Storage charges for Food deliverybag(insulated bag) from 1st to 31st May",
+        "item_type": "SERVICE",
+        "uom": "Std",
+        "quantity_raw": "1,646.2116",
+        "unit_price_raw": "30.00",
+        "total_raw": "49,386.35",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Monthly stock management fee",
+        "item_type": "SERVICE",
+        "uom": "Std",
+        "quantity_raw": "1",
+        "unit_price_raw": "5,000.00",
+        "total_raw": "5,000.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 11.77,
+    "tokens": {
+      "prompt_tokens": 52543,
+      "completion_tokens": 1062,
+      "total_tokens": 53605,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "a6f3edfc1717a6773a7fcaab90d77e9054a3acfec9f14d830e5866c9ffe74551",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "9be3d6bd8bcb7554b39ecedd795fb8202a532d4086b87fe646e6deb6573dd8bd"
+  }
+}

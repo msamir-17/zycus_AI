@@ -1,0 +1,120 @@
+{
+  "summary": {
+    "processed_documents": 42,
+    "total_payables": 37,
+    "declined_documents": 5,
+    "exact_matches": 25,
+    "erp_mismatches": 12,
+    "duration_s": 22.04
+  },
+  "unresolved_mismatches": [
+    {
+      "file": "HLD-03.pdf",
+      "invoice_number": "ZFI",
+      "stated_gross": 67.25,
+      "will_book_gross": 131.1,
+      "delta": 63.85,
+      "currency": "EUR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "HLD-05.pdf",
+      "invoice_number": "7769922058",
+      "stated_gross": 835.27,
+      "will_book_gross": 1489.59,
+      "delta": 654.32,
+      "currency": "EUR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-04.pdf",
+      "invoice_number": "INV7097292303",
+      "stated_gross": 6620.55,
+      "will_book_gross": 19730.55,
+      "delta": 13110.0,
+      "currency": "ZAR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-06.pdf",
+      "invoice_number": "758847574",
+      "stated_gross": 1683.98,
+      "will_book_gross": 1853.81,
+      "delta": 169.83,
+      "currency": "ZAR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-07.pdf",
+      "invoice_number": "INV7097292303",
+      "stated_gross": 6620.55,
+      "will_book_gross": 19730.55,
+      "delta": 13110.0,
+      "currency": "ZAR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-13.pdf",
+      "invoice_number": "1410",
+      "stated_gross": 152587.46,
+      "will_book_gross": 129286.14,
+      "delta": -23301.32,
+      "currency": "EUR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-16.pdf",
+      "invoice_number": "TLLI772836045",
+      "stated_gross": 26.47,
+      "will_book_gross": 29.3,
+      "delta": 2.83,
+      "currency": "EUR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-19.pdf",
+      "invoice_number": "",
+      "stated_gross": 8045.4,
+      "will_book_gross": 1445.4,
+      "delta": -6600.0,
+      "currency": "GHC",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-21.pdf",
+      "invoice_number": "9884313366",
+      "stated_gross": 868.51,
+      "will_book_gross": 544.09,
+      "delta": -324.42,
+      "currency": "EUR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-25.pdf",
+      "invoice_number": "PT456472637",
+      "stated_gross": 176.0,
+      "will_book_gross": 32.91,
+      "delta": -143.09,
+      "currency": "EUR",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-35.pdf",
+      "invoice_number": "0248727220",
+      "stated_gross": 30.25,
+      "will_book_gross": 121.0,
+      "delta": 90.75,
+      "currency": "USD",
+      "status": "UNRESOLVED_MISMATCH"
+    },
+    {
+      "file": "INV-37.pdf",
+      "invoice_number": "5568",
+      "stated_gross": 2487.73,
+      "will_book_gross": 2047.67,
+      "delta": -440.06,
+      "currency": "USD",
+      "status": "UNRESOLVED_MISMATCH"
+    }
+  ]
+}

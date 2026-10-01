@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "DU-10.pdf",
+    "document_type": "CREDIT_MEMO",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "CREDIT_MEMO",
+        "pages": [
+          1
+        ],
+        "description": "Credit note adjusting payable balance for returned items."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is identified as a credit memo due to the presence of a credit note title, customer details, and line items indicating adjustments to a payable balance. It includes specific amounts and references to products, which are characteristic of a credit memo rather than an invoice or other document types."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.12,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 159,
+      "total_tokens": 3538,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "94c44e3b5bab9439d4d4564c78a7593135e50ddfb73518228d17a721aae078e7",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "167e684aadf6f53e95f00292ba5bcb07fe8fcc7a24108b59555c5e7c7dde938d"
+  }
+}

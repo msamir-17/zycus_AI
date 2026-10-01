@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-35.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice for medical records services rendered."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice from Ciox Health, detailing services provided, including an invoice number and payment instructions. It meets the criteria for an invoice as it outlines goods/services purchased and includes necessary billing information."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.58,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 140,
+      "total_tokens": 3519,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 1,
+    "cache_hit": false,
+    "source_pdf_sha256": "8f217715d2c6a085387e48c421b0c4ecf4e7e87fd98d9f88d887d1cd96574880",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "fe42cd6637bacf66f53d5a93e364d3705aefdee968106be529288ae115a51b1b"
+  }
+}

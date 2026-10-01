@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "INV-03.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Invoice for contract cleaning services with payment advice."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a clear invoice layout with an invoice number, date, total amount due, and details of services provided. The second page serves as a payment advice related to the same invoice, thus both pages are part of the same payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.58,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 159,
+      "total_tokens": 6371,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "58eab8025ecd0405398ed8acada22452109242feb1add4e5c3c717f78c9a3c0b",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "085a3213801c895b310bd31c37075062fedc3f49da6575ecb15cafec04af8e8e"
+  }
+}

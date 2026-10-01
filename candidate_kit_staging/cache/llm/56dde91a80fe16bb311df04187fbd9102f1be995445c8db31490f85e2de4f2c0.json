@@ -1,0 +1,98 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "All fields extracted as visible. No ambiguities noted.",
+    "invoice_number": "PT456472637",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-04-13",
+    "due_date": "2026-05-13",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Fairmont Services LDA",
+      "address": "High Street 34, 1000-137 LISBOA",
+      "vat_id": "029461956"
+    },
+    "buyer": {
+      "name": "Support Services PT Unipessoal, Lda",
+      "address": "Rua do Ouro 224, Lisboa"
+    },
+    "payment_terms_raw": "Pagamento Credito",
+    "po_number": null,
+    "gross_total_raw": "176,00 EUR",
+    "subtotal_raw": "143,09 EUR",
+    "total_tax_raw": "32,91 EUR",
+    "discount_amount_raw": "0,00 EUR",
+    "freight_charges_raw": "0,00 EUR",
+    "insurance_charges_raw": null,
+    "extra_charges_raw": "0,00 EUR",
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "IVA",
+        "tax_rate_raw": "23%",
+        "tax_amount_raw": "32,91",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "FOT./IMPRENSA A4 CORES ESTUD.",
+        "item_type": "GOODS",
+        "uom": "UNI",
+        "quantity_raw": "400",
+        "unit_price_raw": "0,400 EUR",
+        "total_raw": "160,00 EUR",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "FOLHA 120g",
+        "item_type": "GOODS",
+        "uom": "UNI",
+        "quantity_raw": "200",
+        "unit_price_raw": "0,080 EUR",
+        "total_raw": "16,00 EUR",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 6.4,
+    "tokens": {
+      "prompt_tokens": 75213,
+      "completion_tokens": 517,
+      "total_tokens": 75730,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "e0d7babe165dfc3c5d2a251dc7f51fe8ebc828b10948f52aeabcbf470151c2b2",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "ee98ddbe8c82b7550fd6c9cd9d9becaf3c7a1daaa4ed7f8c6899a9c121c42b40"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "HLD-01.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice detailing goods/services purchased with total amount due."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice, as indicated by the title 'INVOICE' at the top and the presence of line items, quantities, and a total amount due. It meets the criteria for a bookable payable, making it suitable for processing."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.53,
+    "tokens": {
+      "prompt_tokens": 3381,
+      "completion_tokens": 152,
+      "total_tokens": 3533,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "4156e028d80c202f25646545e11d2f8972dd644f80bf6d1236e24ebb1fc52fda",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "6caff1f4fdc0aa4a190639983e721974a7fec5716e121729e0cee1556ce2b1cf"
+  }
+}

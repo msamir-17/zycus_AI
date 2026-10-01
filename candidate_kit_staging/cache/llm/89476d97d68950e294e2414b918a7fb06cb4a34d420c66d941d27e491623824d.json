@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "HLD-03.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice detailing goods/services purchased with invoice number and seller information."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice as it contains an invoice number, seller details, and line items for goods/services purchased, indicating it is a bookable payable ready for extraction."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.21,
+    "tokens": {
+      "prompt_tokens": 3381,
+      "completion_tokens": 139,
+      "total_tokens": 3520,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "3fe124d4a74219541fd0b6a8cdf97081899f0a9d0156a88ebc873ff11c89800c",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "94be5b1e0f40ce3e7873baf6241fb7e1face501bb5f88c726608e4860dc1aa25"
+  }
+}

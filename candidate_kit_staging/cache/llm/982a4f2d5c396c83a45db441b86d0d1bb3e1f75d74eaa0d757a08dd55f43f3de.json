@@ -1,0 +1,78 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as per the visible text. No ambiguities or missing fields.",
+    "invoice_number": "44273107",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2018-06-18",
+    "due_date": "2018-07-18",
+    "currency": "USD",
+    "supplier": {
+      "name": "Oracle America, Inc.",
+      "address": "500 Oracle Parkway, Redwood Shores, CA 94065, United States",
+      "vat_id": "94-2805249"
+    },
+    "buyer": {
+      "name": "AmeriHealth Caritas Services",
+      "address": "200 Stevens Drive, Philadelphia, PA 19113, United States"
+    },
+    "payment_terms_raw": "30 NET",
+    "po_number": "1000021496",
+    "gross_total_raw": "91,580.50",
+    "subtotal_raw": "91,580.50",
+    "total_tax_raw": "0.00",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [],
+    "line_items": [
+      {
+        "description": "Managed Cloud Services - Computer and Administration Services - Managed Cloud Services - Additional Services 18-JUL-2018 : 17-OCT-2018",
+        "item_type": "SERVICE",
+        "uom": "N",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "91,580.50",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 5.91,
+    "tokens": {
+      "prompt_tokens": 27304,
+      "completion_tokens": 403,
+      "total_tokens": 27707,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 3,
+    "cache_hit": false,
+    "source_pdf_sha256": "7f685150edaf1ccbd44d4f24a3afc49a18bcdbf6d02cf921e37c2fc34b4fbdbe",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "1c81808c392b83e718199bc6b64b14045db5ffd83c1aec0cb23355cba8be663b"
+  }
+}

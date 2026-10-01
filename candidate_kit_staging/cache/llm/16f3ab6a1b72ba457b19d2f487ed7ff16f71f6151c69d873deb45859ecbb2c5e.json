@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-13.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice detailing services rendered with itemized charges."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a commercial invoice as it includes a detailed list of services provided, itemized charges, and a clear invoice number. It meets the criteria for a payable document, indicating it is ready for processing in the accounts payable system."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.73,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 147,
+      "total_tokens": 3526,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "f91c3508585defdec8b46a0cd4f5d4128a84973bd927de907d897fed18eca20f",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "bbc642375aaa56a815e142b1f1b9a95b99b18dd0a12b15f404f8d051f4991fb9"
+  }
+}

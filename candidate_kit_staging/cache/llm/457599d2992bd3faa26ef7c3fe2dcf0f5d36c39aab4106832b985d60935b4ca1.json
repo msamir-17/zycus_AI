@@ -1,0 +1,85 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as printed. No ambiguities or missing fields.",
+    "invoice_number": "20423591",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-02-16",
+    "due_date": "2026-03-08",
+    "currency": "CHF",
+    "supplier": {
+      "name": "Northwind CH sarl",
+      "address": "Avenida Central 60\n8005 Zürich",
+      "vat_id": "CHE-756.246.710"
+    },
+    "buyer": {
+      "name": "Nina Costa",
+      "address": "Market Road 26\n8008 Switzerland"
+    },
+    "payment_terms_raw": "20 Days net",
+    "po_number": "7856147",
+    "gross_total_raw": "12.10",
+    "subtotal_raw": "11.19",
+    "total_tax_raw": "0.91",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "VAT",
+        "tax_rate_raw": "8.10%",
+        "tax_amount_raw": "0.91",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "King King Tony Cap 1/2 & quot Torx tip with T45x60mm hole",
+        "item_type": "GOODS",
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": "11.19",
+        "total_raw": "12.10",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 5.41,
+    "tokens": {
+      "prompt_tokens": 38368,
+      "completion_tokens": 420,
+      "total_tokens": 38788,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "c7773a7549b00d80c91677c5e46755240bb1f1b8feb086df40db5ca7e1b8487d",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "53c38ab5ea08ca29843abf0b874219f2f6898d28bc9e63dc780a1307e452c83c"
+  }
+}

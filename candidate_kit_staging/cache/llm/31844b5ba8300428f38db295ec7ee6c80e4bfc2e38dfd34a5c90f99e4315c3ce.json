@@ -1,0 +1,56 @@
+{
+  "data": {
+    "filename": "DU-05s.pdf",
+    "document_type": "NON_PAYABLE",
+    "decision": "DECLINE",
+    "document_count": 0,
+    "page_segmentation": [],
+    "decline_reason": "All pages consist of delivery notes and a shipment receipt, which are non-payable documents.",
+    "rationale": "The document contains multiple delivery notes and a shipment receipt, none of which qualify as invoices or credit memos. They do not represent payable transactions but rather serve as supporting documentation for shipments, thus falling under the non-payable category."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.89,
+    "tokens": {
+      "prompt_tokens": 43043,
+      "completion_tokens": 123,
+      "total_tokens": 43166,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "93c2415f04dfcf7144930208491404de72ca5c51a9be516203251f8bd180661c",
+    "page_range": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "0827515fbd5ee1889bfd141a405b6fc0b63f3ef008f706324dae8759896012a0"
+  }
+}

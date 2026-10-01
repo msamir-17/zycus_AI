@@ -1,0 +1,52 @@
+{
+  "data": {
+    "filename": "INV-20.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Commercial invoice detailing goods/services purchased."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The first page contains a clear invoice format with an invoice number, billing details, and a description of goods/services purchased, which qualifies it as an INVOICE. The second page appears to be a payment instruction related to the invoice, supporting the first page rather than being a separate payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.02,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 155,
+      "total_tokens": 6367,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "c7773a7549b00d80c91677c5e46755240bb1f1b8feb086df40db5ca7e1b8487d",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "32b8e75be1e1681af126989a24f04053670a76c50464004f3bee39732a4bbf17"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "data": {
+    "filename": "INV-26.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2
+        ],
+        "description": "Commercial invoice detailing goods/services purchased with total amount due."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document contains a detailed breakdown of goods/services purchased, including quantities, descriptions, and total amounts, which aligns with the characteristics of a commercial invoice. Both pages are part of the same invoice, as they share the same invoice number and billing party, thus forming a single payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.56,
+    "tokens": {
+      "prompt_tokens": 6212,
+      "completion_tokens": 161,
+      "total_tokens": 6373,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "7bf8d0077d4ee85f5ba4dc208d7c86c0a147d78b2e337a1d5ee57ada64866a19",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "2446398ee2b7135857fa7233766be3340f1c3e43f785be9c1a2a16cc979ab2c3"
+  }
+}

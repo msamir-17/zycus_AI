@@ -1,0 +1,51 @@
+{
+  "file": "INV-31.pdf",
+  "payables": [
+    {
+      "invoice_number": "39015",
+      "invoice_date": "2018-06-01",
+      "due_date": "2018-06-01",
+      "invoice_type": "INVOICE",
+      "currency": "USD",
+      "supplier": {
+        "name": "AmeriHealth Caritas",
+        "supplier_id": "",
+        "address": "200 Stevens Drive\nSuite 100\nLester, PA 19113",
+        "vat_id": ""
+      },
+      "buyer": {
+        "company_code": "",
+        "business_unit_code": "",
+        "location_code": ""
+      },
+      "payment_term_id": "Immediate",
+      "po_number": "",
+      "po_id": "",
+      "gross_total": "17657.53",
+      "subtotal": "",
+      "total_tax_amount": "",
+      "discount_amount": "",
+      "freight_charges": "",
+      "insurance_charges": "",
+      "extra_charges": "",
+      "excise_duties": "",
+      "taxes": [],
+      "line_items": [
+        {
+          "description": "Electric 04/27/18-05/16/18",
+          "item_type": "SERVICE",
+          "uom": "Unit",
+          "quantity": "100",
+          "unit_price": "176.5753",
+          "total": "17657.53",
+          "discount": "",
+          "discount_percentage": "",
+          "tax_rate": "",
+          "tax_amount": "",
+          "taxes": []
+        }
+      ]
+    }
+  ],
+  "declined": []
+}

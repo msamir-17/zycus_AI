@@ -1,0 +1,137 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "No explicit unit price printed for line items. Total tax not clearly defined at header level.",
+    "invoice_number": "FN 05/80906935",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-06-15",
+    "due_date": "2026-07-16",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Blackpine Supply S.A.",
+      "address": "Qta da Mendanha, OTAPARK,, Fracão AN, 2580-490 Carregado",
+      "vat_id": "NIF: 353598684"
+    },
+    "buyer": {
+      "name": "Northwind SUPPORT SERVICES PT, UNIPESSOAL Cloverdale Distribution LDA",
+      "address": "Bahnhofstrasse 224, 1250-148 LISBOA"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "EUR 153,58",
+    "subtotal_raw": "138,20",
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "IVA",
+        "tax_rate_raw": "23,00%",
+        "tax_amount_raw": "9,59",
+        "_placement": "HEADER"
+      },
+      {
+        "tax_name": "IVA",
+        "tax_rate_raw": "6,00%",
+        "tax_amount_raw": "5,79",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Empanadilla Atum Cozida (50u)",
+        "item_type": "GOODS",
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "41,68",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pao Burger Brioch LeBrio14px4u",
+        "item_type": "GOODS",
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "28,43",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Chapata Cristalino 28px2u",
+        "item_type": "GOODS",
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "25,94",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pao Maestra Classica 7u",
+        "item_type": "GOODS",
+        "uom": null,
+        "quantity_raw": "2",
+        "unit_price_raw": null,
+        "total_raw": "26,86",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Pao Maestra Cereais 7u",
+        "item_type": "GOODS",
+        "uom": null,
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "15,29",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 10.9,
+    "tokens": {
+      "prompt_tokens": 75212,
+      "completion_tokens": 821,
+      "total_tokens": 76033,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "9d2d7c8c723f9222bb15516d3ac4d836bde10d98fc8bd2591daf341ff5c5d1a7",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "e5bc748ae6f2c0e5bef3d4e0b447d2fcc27bce1344c1fb2c5e9c44b7a0fab7bf"
+  }
+}

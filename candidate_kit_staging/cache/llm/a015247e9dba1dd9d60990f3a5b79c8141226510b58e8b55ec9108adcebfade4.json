@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-37.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Invoice for utility reimbursement detailing electric usage and associated costs."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains a clear invoice number (5568), invoice date (6/12/2018), and detailed billing information for utility services provided. The layout includes specific charges for electric usage, which aligns with the characteristics of a vendor commercial invoice for goods/services purchased."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 2.63,
+    "tokens": {
+      "prompt_tokens": 3613,
+      "completion_tokens": 163,
+      "total_tokens": 3776,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "1e329960c3b832fe807daf325d84ae8fe8c4c5970c7651e7317a97696d7a4755",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "0f59f4500c49508726807d179171c81823a8bd86c5736ce382e6f008ae17bffd"
+  }
+}

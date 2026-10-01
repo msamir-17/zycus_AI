@@ -1,0 +1,55 @@
+{
+  "data": {
+    "filename": "INV-31.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1,
+          2,
+          3
+        ],
+        "description": "Invoice for services rendered by AmeriHealth Caritas to 100 Airport KPG III, LLC."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is classified as an INVOICE because it contains clear invoice details such as the vendor name (AmeriHealth Caritas), invoice number, amount due, and payment instructions. The pages include relevant billing information and are all related to the same invoice, thus they are grouped together as one payable document."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 5.27,
+    "tokens": {
+      "prompt_tokens": 9672,
+      "completion_tokens": 177,
+      "total_tokens": 9849,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "1cf3a94a9d582c479e37635baca5297a738104052636ae31b9b4472122767065",
+    "page_range": [
+      1,
+      2,
+      3
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "087ef30773f1c7d7a51842b5efd2c98e0631e3c85b965266396c246aba91be76"
+  }
+}

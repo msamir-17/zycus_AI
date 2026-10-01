@@ -1,0 +1,51 @@
+{
+  "data": {
+    "filename": "INV-15.pdf",
+    "document_type": "INVOICE",
+    "decision": "PROCESS",
+    "document_count": 1,
+    "page_segmentation": [
+      {
+        "segment_id": 1,
+        "type": "INVOICE",
+        "pages": [
+          1
+        ],
+        "description": "Tax invoice detailing services rendered with a clear invoice number and total amount."
+      }
+    ],
+    "decline_reason": "",
+    "rationale": "The document is a tax invoice that includes an invoice number, a detailed list of services with quantities and amounts, and a total payable amount. This aligns with the characteristics of a commercial invoice, making it a bookable payable ready for extraction."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.58,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 152,
+      "total_tokens": 3531,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "cc293b82e46fc9c1ba2a17f24d09f6ca1edd015a78e30f3f79df86539f410d15",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "316c0edfaa8fc34fb275205fe3a628818360aa6bb798f4b4a641bf5c801a1422"
+  }
+}

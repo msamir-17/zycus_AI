@@ -1,0 +1,96 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+    "invoice_number": "59000366703",
+    "invoice_type": "CREDIT_MEMO",
+    "invoice_date": "2026-04-15",
+    "due_date": null,
+    "currency": "GBP",
+    "supplier": {
+      "name": "Northwind Services UK Limited",
+      "address": "Jalan Ampang 157, London SE1 4GT, UNITED KINGDOM",
+      "vat_id": "GB726874417"
+    },
+    "buyer": {
+      "name": "Blackpine Consulting Limited",
+      "address": "Pann mont 50, Bahnhofstrasse 65, Chippenham SN14 0GF"
+    },
+    "payment_terms_raw": "Within 30 days of invoice date",
+    "po_number": null,
+    "gross_total_raw": "5,076.17",
+    "subtotal_raw": "4,230.14",
+    "total_tax_raw": "846.03",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "VAT",
+        "tax_rate_raw": "20%",
+        "tax_amount_raw": "846.03",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "Logitech Tap Scheduler Touch Controller",
+        "item_type": "GOODS",
+        "uom": "Unit",
+        "quantity_raw": "6",
+        "unit_price_raw": "457.24",
+        "total_raw": "2,743.44",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "Logitech Tap Touch Controller Cat5e Kit",
+        "item_type": "GOODS",
+        "uom": "Unit",
+        "quantity_raw": "2",
+        "unit_price_raw": "743.35",
+        "total_raw": "1,486.70",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": true
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 8.14,
+    "tokens": {
+      "prompt_tokens": 38372,
+      "completion_tokens": 516,
+      "total_tokens": 38888,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "94c44e3b5bab9439d4d4564c78a7593135e50ddfb73518228d17a721aae078e7",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "bcca00461dc0ba0d36525c2890db300ead1c74eda85c0a96b183e69d0a9bc138"
+  }
+}

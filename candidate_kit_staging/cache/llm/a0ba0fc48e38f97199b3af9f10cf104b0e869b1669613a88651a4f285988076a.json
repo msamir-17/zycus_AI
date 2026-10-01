@@ -1,0 +1,118 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as per the visible data. No ambiguities noted.",
+    "invoice_number": "18109293",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-04-07",
+    "due_date": "2026-04-28",
+    "currency": "EUR",
+    "supplier": {
+      "name": "Northwind Operations OÜ S?o Jo?o da Talh",
+      "address": "Lindenstrasse 15, 10134 TALLINN, EESTI",
+      "vat_id": "EE063563009"
+    },
+    "buyer": {
+      "name": "Northwind Operations OÜ Dos Hermanas",
+      "address": "Parnu mnt 43"
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "83,21",
+    "subtotal_raw": "67,10",
+    "total_tax_raw": "16,11",
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "KM",
+        "tax_rate_raw": "24,0 %",
+        "tax_amount_raw": "16,11",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "AGREED PICKUP FEE",
+        "item_type": "SERVICE",
+        "uom": "KM",
+        "quantity_raw": "1",
+        "unit_price_raw": "5,00",
+        "total_raw": "5,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "TARNEKULUD",
+        "item_type": "SERVICE",
+        "uom": "KM",
+        "quantity_raw": "1",
+        "unit_price_raw": "53,40",
+        "total_raw": "53,40",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "AGREED DELIVERY FEE",
+        "item_type": "SERVICE",
+        "uom": "KM",
+        "quantity_raw": "1",
+        "unit_price_raw": "5,00",
+        "total_raw": "5,00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "BAF 6,93% (16.03-29.03)",
+        "item_type": "SERVICE",
+        "uom": "KM",
+        "quantity_raw": "1",
+        "unit_price_raw": "3,70",
+        "total_raw": "3,70",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 8.58,
+    "tokens": {
+      "prompt_tokens": 38376,
+      "completion_tokens": 675,
+      "total_tokens": 39051,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "b54e26a09bbc5be96a45bd58996aa17cbccb6473e4aa73b4962b735534e93768",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "69ea50ed64550cecafdc3c4a549f30a7faa5480c57c8208a0dd9ae5ee7a4870b"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "data": {
+    "filename": "DU-08.pdf",
+    "document_type": "STATEMENT",
+    "decision": "DECLINE",
+    "document_count": 0,
+    "page_segmentation": [],
+    "decline_reason": "The document is a reminder notice (Mahnung) and does not qualify as a payable invoice or credit memo.",
+    "rationale": "The content of the document indicates it is a reminder for payment rather than a commercial invoice for goods or services. It lacks the necessary elements of an invoice, such as a clear invoice number, itemized charges, or vendor details typically found in payable documents."
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "low",
+    "fallback_used": true,
+    "duration_s": 3.53,
+    "tokens": {
+      "prompt_tokens": 3379,
+      "completion_tokens": 130,
+      "total_tokens": 3509,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "e793c620d313babb162ca1740b7724b7b0f5fffd9fe452020a40f06f6e2977ac",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_classify",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "c5a86b7128a41c12dc5e4c55a31bb7f4fbdac3f3014dd174cb574d49c2dc3ee5"
+  }
+}

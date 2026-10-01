@@ -1,0 +1,153 @@
+{
+  "data": {
+    "_source_pages": [
+      1,
+      2
+    ],
+    "_extraction_notes": "No explicit unit prices found in the line items. The total amounts are extracted as printed.",
+    "invoice_number": "7769922058",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2026-06-12",
+    "due_date": null,
+    "currency": "EUR",
+    "supplier": {
+      "name": "Northwind Support Services PT Unipessoal, Lda",
+      "address": "Parnu mnt 224, Portugal",
+      "vat_id": "PT668715865"
+    },
+    "buyer": {
+      "name": null,
+      "address": null
+    },
+    "payment_terms_raw": null,
+    "po_number": null,
+    "gross_total_raw": "835,27",
+    "subtotal_raw": "835,27",
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [
+      {
+        "tax_name": "IVA",
+        "tax_rate_raw": "23",
+        "tax_amount_raw": "157,05",
+        "_placement": "HEADER"
+      }
+    ],
+    "line_items": [
+      {
+        "description": "SAGRES Branca Gfa Tab 6x1 PT",
+        "item_type": "GOODS",
+        "uom": "TAB",
+        "quantity_raw": "40",
+        "unit_price_raw": null,
+        "total_raw": "590,40",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "HEINEKEN Barril OW 5L PT",
+        "item_type": "GOODS",
+        "uom": "BAR",
+        "quantity_raw": "5",
+        "unit_price_raw": null,
+        "total_raw": "147,18",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "SAGRES Branca Gfa Tab 4(6x25cl) PT 201a",
+        "item_type": "GOODS",
+        "uom": "TAB",
+        "quantity_raw": "1",
+        "unit_price_raw": null,
+        "total_raw": "24,96",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "SAGRES Branca Gfa Cxa 20x25cl PT 201a",
+        "item_type": "GOODS",
+        "uom": "CRT",
+        "quantity_raw": "9",
+        "unit_price_raw": null,
+        "total_raw": "187,20",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "CASTELLO Original Gfa SW 4(6x25cl) 404a",
+        "item_type": "GOODS",
+        "uom": "PAK",
+        "quantity_raw": "7",
+        "unit_price_raw": null,
+        "total_raw": "142,80",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "LUSO PET SW 6x1,5L SDR",
+        "item_type": "GOODS",
+        "uom": "SDR",
+        "quantity_raw": "27",
+        "unit_price_raw": null,
+        "total_raw": "181,44",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      },
+      {
+        "description": "LUSO PET SW 4(6x50cl) SDR",
+        "item_type": "GOODS",
+        "uom": "SDR",
+        "quantity_raw": "4",
+        "unit_price_raw": null,
+        "total_raw": "58,56",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 11.05,
+    "tokens": {
+      "prompt_tokens": 75211,
+      "completion_tokens": 934,
+      "total_tokens": 76145,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 0,
+    "cache_hit": false,
+    "source_pdf_sha256": "42e8067a5126b8c43f42bd6457f256980186b945e86cc19a5e6d478e55f35415",
+    "page_range": [
+      1,
+      2
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "b13ca228a1bb1edcc6102c6680afca9cfac12d60498b8c95524df4efc5474293"
+  }
+}

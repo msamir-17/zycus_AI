@@ -1,0 +1,78 @@
+{
+  "data": {
+    "_source_pages": [
+      1
+    ],
+    "_extraction_notes": "All fields extracted as visible. No ambiguities or missing fields.",
+    "invoice_number": "ADIP/INV/070/17",
+    "invoice_type": "INVOICE",
+    "invoice_date": "2017-06-08",
+    "due_date": null,
+    "currency": "SGD",
+    "supplier": {
+      "name": "Changi Airport Group (S) Pte Ltd",
+      "address": "PO Box 168, Singapore Changi Airport, Singapore 918146",
+      "vat_id": null
+    },
+    "buyer": {
+      "name": "AD NOTIONS INT'L PTE. LTD.",
+      "address": "20 Sin Ming Lane Midview City #08-11 Singapore 573968"
+    },
+    "payment_terms_raw": "C.O.D",
+    "po_number": null,
+    "gross_total_raw": "250.00",
+    "subtotal_raw": "250.00",
+    "total_tax_raw": null,
+    "discount_amount_raw": null,
+    "freight_charges_raw": null,
+    "insurance_charges_raw": null,
+    "extra_charges_raw": null,
+    "excise_duties_raw": null,
+    "header_taxes": [],
+    "line_items": [
+      {
+        "description": "Pillar Signage Panel For Shuttle Service At T2 Coach Bay (Lot No. 8)",
+        "item_type": "SERVICE",
+        "uom": "pc",
+        "quantity_raw": "01",
+        "unit_price_raw": "$250.00",
+        "total_raw": "$250.00",
+        "discount_raw": null,
+        "discount_percentage_raw": null,
+        "taxes": []
+      }
+    ],
+    "raw_credit": false
+  },
+  "meta": {
+    "provider": "openai",
+    "model": "gemini-3.1-flash-lite",
+    "detail": "high",
+    "fallback_used": true,
+    "duration_s": 5.84,
+    "tokens": {
+      "prompt_tokens": 38372,
+      "completion_tokens": 386,
+      "total_tokens": 38758,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "audio_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0,
+        "accepted_prediction_tokens": 0,
+        "rejected_prediction_tokens": 0
+      }
+    },
+    "retries": 1,
+    "cache_hit": false,
+    "source_pdf_sha256": "65fdc1728fe3c6aeced4bd6f1fe4cb7a92d7b4f620db71aea681c40f750ca8d4",
+    "page_range": [
+      1
+    ],
+    "prompt_version": "v1_extract",
+    "schema_version": "v4_quality_fixes",
+    "legacy_cache_key": "c873e0f2bc69c3880b7a6cf8a7897e417d97f750782f8da8866beaa9b8bacceb"
+  }
+}
